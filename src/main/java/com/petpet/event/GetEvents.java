@@ -1,7 +1,6 @@
 package com.petpet.event;
 
 import java.io.IOException;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
@@ -10,9 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-
 import com.petpet.bean.*;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,11 +32,8 @@ public class GetEvents extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String empno = request.getParameter("empno");
+	
 		try {
-//			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//			conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=petpet", "Hunter1", "Aq7421qq");
-			
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)context.lookup("java:/comp/env/jdbc/petpet");
 			conn = ds.getConnection();
