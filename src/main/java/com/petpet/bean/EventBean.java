@@ -32,20 +32,20 @@ public class EventBean implements java.io.Serializable {
 	public int getEventFee() {  return EventFee;  }
 	public boolean getEventStatus() {  return EventStatus;  }
 	
-	public int setEventID(int EventID) {  return EventID;  }
-	public int setHostID(int HostID) {  return HostID;  }
-	public String setEventDate(String EventDate ) {  return EventDate;  }
-	public String setEventName(String EventName ) {  return EventName;  }
-	public String setEventStratTime(String EventStratTime) {  return EventStratTime;  }
-	public String setEventBean(String EventEndTime) {  return EventEndTime;  }
-	public String setEventLocation(String EventLocation) {  return EventLocation;  }
-	public byte[] setEventPicture(byte[] EventPicture) {  return EventPicture;  }
-	public String setEventType1(String EventType1) {  return EventType1;  }
-	public String setEventType2(String EventType2) {  return EventType2;  }
-	public String setEventCustom(String EventCustom) {  return EventCustom;  }
-	public int setEventMaxLimit(int EventMaxLimit) {  return EventMaxLimit;  }
-	public int setEventFee(int EventFee) {  return EventFee;  }
-	public boolean setEventStatus() {  return EventStatus;  }
+	public void setEventID(int EventID) {  this.EventID= EventID;  }
+	public void setHostID(int HostID) {   this.HostID= HostID;  }
+	public void setEventDate(String EventDate ) {  this.EventDate= EventDate;  }
+	public void setEventName(String EventName ) {  this.EventName =EventName;  }
+	public void setEventStratTime(String EventStratTime) {  this.EventStratTime = EventStratTime ;  }
+	public void setEventBean(String EventEndTime) {  this.EventEndTime = EventEndTime;  }
+	public void setEventLocation(String EventLocation) {  this.EventLocation = EventLocation;  }
+	public void setEventPicture(byte[] EventPicture) {  this.EventPicture = EventPicture;  }
+	public void setEventType1(String EventType1) {  this.EventType1= EventType1;  }
+	public void setEventType2(String EventType2) {  this.EventType1 = EventType2;  }
+	public void setEventCustom(String EventCustom) {  this.EventCustom= EventCustom;  }
+	public void setEventMaxLimit(int EventMaxLimit) {  this.EventMaxLimit= EventMaxLimit;  }
+	public void setEventFee(int EventFee) {  this.EventFee= EventFee;  }
+	public void setEventStatus(boolean True) {  this.EventStatus = True;  }
 	
 
 
