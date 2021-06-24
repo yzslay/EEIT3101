@@ -18,61 +18,70 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.petpet.bean.EmpBean;
 import com.petpet.bean.EventBean;
 
-@WebServlet("/Getallevent")
-public class GetEvents extends HttpServlet {
+@WebServlet("/Getaevent")
+public class GetaEvent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static final String SQL="select * from event";
+    private static final String SQL="select * from event where EventID =¡@?";
 
     Connection conn ;
     
-    public GetEvents() {
+    public GetaEvent() {
         super();
         // TODO Auto-generated constructor stub
     }
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
+
+	@SuppressWarnings("null")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String EventID = request.getParameter("eventid");
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)context.lookup("java:/comp/env/jdbc/petpet");
 			conn = ds.getConnection();
-			
-			PreparedStatement stmt = conn.prepareStatement(SQL);
-			ResultSet rs= stmt.executeQuery();	
-			List<EventBean> events = new ArrayList<>();
-			EventBean event = null ;
 
-			while (rs.next()) {
-				event = new EventBean();
+			PreparedStatement stmt = conn.prepareStatement(SQL);
+			stmt.setString(1,EventID);
+			ResultSet rs= stmt.executeQuery();
+	
+			EventBean event = new EventBean();
+			
+			if (rs.next()) {
 				event.setEventID(rs.getInt("eventid"));
 				event.setEventName(rs.getString("eventname"));
 				event.setEventDate(rs.getString("eventdate"));
 				event.setEventStratTime(rs.getTimestamp("eventstarttime"));
 				event.setEventEndTime(rs.getTimestamp("eventendtime"));
 				event.setEventLocation(rs.getString("eventlocation"));
-				event.setEventType(rs.getString("eventtype"));
-				event.setEventType1(rs.getString("eventtype1"));
+				event.setEventType1(rs.getString("eventtype"));
+				event.setEventType2(rs.getString("eventtype1"));
 				event.setEventType2(rs.getString("eventtype2"));
 				event.setEventMaxLimit(rs.getInt("eventmaxlimit"));
-				event.setEventFee(rs.getInt("eventfee"));				
-				events.add(event);
-	
+				event.setEventFee(rs.getInt("eventfee"));	
 			}
-			request.setAttribute("events", events);		
+			System.out.println(event.getEventName()) ;
+			request.setAttribute("event", event);
+			
 //			EventBean event = null ;
 //			EmpBean emp = null;
+	
 //			event.setEventName((String)rs.getString("EventName"));
 //			emp.setEname(rs.getString("ename"));
-		
+			
+			System.out.println("moooooooo") ;
 			stmt.close();
+
 //			System.out.println(event.getEventName()) ;
 //			System.out.println(emp.getEname()) ;
-			request.getRequestDispatcher("/event/getallevent.jsp").forward(request,response);
+
+			request.getRequestDispatcher("/event/getaevent.jsp").forward(request,response);
 			System.out.println("¶]¨ì³Ì«á") ;
 		}
 		catch(SQLException e) {
