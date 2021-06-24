@@ -1,26 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"  import="java.util.*, com.petpet.bean.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="BIG5"  import="java.util.* , com.petpet.bean.EventBean" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%! @SuppressWarnings("unchecked") %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="BIG5">
-<title>員工頁面</title>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<title>活動頁面</title>
+<style>
 
+</style>
+<script>
+
+</script>
 </head>
-<body style="backgrond-color:#fdf5e6">
+<body style="background-color:#fdf5e6">
+
 <h2>員工資料</h2>
-
-<table border="1">
-<tr style="background-color:#a8fefa">
-<th>活動編號<th>主持人ID<th>活動名稱
-
-	<tr><td>${event.EventID}
-	<td>${event.HostID}
-	<td>${event.EventName}
-
-
+<table>
+    <tr>
+        <th>活動名稱</th> <th>活動日期</th> <th>活動起始時間</th> <th>活動地點</th> 
+		<th>活動種類</th>  <th>活動種類</th>  <th>活動人數上限</th> <th>活動費用</th>
+    </tr>
+    <c:forEach items="${events}" var="event" varStatus="s">
+    <tr>
+    	<td>${event.eventName}</td> <td>${event.eventDate}</td><td>${event.eventStratTime}</td><td>${event.eventLocation}</td>
+    	<td>${event.eventType1}</td><td>${event.eventType2}</td><td>${event.eventMaxLimit}</td><td>${event.eventFee}</td>
+    </tr>
+    </c:forEach>
 </table>
+
+
 </body>
 </html>

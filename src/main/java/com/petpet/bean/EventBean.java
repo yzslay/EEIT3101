@@ -1,51 +1,74 @@
 package com.petpet.bean;
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 public class EventBean implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
-	private int EventID;
-	private int HostID;
-	private String EventDate;
-	private String EventName;
-	private String EventStratTime;
-	private String EventEndTime;
-	private String EventLocation;
-	private byte[] EventPicture;
-	private String EventType1;
-	private String EventType2;
-	private String EventCustom;
-	private int EventMaxLimit;
-	private int EventFee;
-	private boolean EventStatus;
+	private int eventID;
+	private int hostID;
+	private String eventDate;
+	private String eventName;
+	private String eventStratTime;
+	private String eventEndTime;
 	
-	public int getEventID() {  return EventID;  }
-	public int getHostID() {  return HostID;  }
-	public String getEventDate() {  return EventDate;  }
-	public String getEventName() {  return EventName;  }
-	public String getEventStratTime() {  return EventStratTime;  }
-	public String getEventBean() {  return EventEndTime;  }
-	public String getEventLocation() {  return EventLocation;  }
-	public byte[] getEventPicture() {  return EventPicture;  }
-	public String getEventType1() {  return EventType1;  }
-	public String getEventType2() {  return EventType2;  }
-	public String getEventCustom() {  return EventCustom;  }
-	public int getEventMaxLimit() {  return EventMaxLimit;  }
-	public int getEventFee() {  return EventFee;  }
-	public boolean getEventStatus() {  return EventStatus;  }
+	private String eventLocation;
+	private byte[] eventPicture;
+	private String eventType1;
+	private String eventType2;
+	private String eventCustom;
+	private int eventMaxLimit;
+	private int eventFee;
+	private boolean eventStatus;
+
 	
-	public void setEventID(int EventID) {  this.EventID= EventID;  }
-	public void setHostID(int HostID) {   this.HostID= HostID;  }
-	public void setEventDate(String EventDate ) {  this.EventDate= EventDate;  }
-	public void setEventName(String EventName ) {  this.EventName =EventName;  }
-	public void setEventStratTime(String EventStratTime) {  this.EventStratTime = EventStratTime ;  }
-	public void setEventBean(String EventEndTime) {  this.EventEndTime = EventEndTime;  }
-	public void setEventLocation(String EventLocation) {  this.EventLocation = EventLocation;  }
-	public void setEventPicture(byte[] EventPicture) {  this.EventPicture = EventPicture;  }
-	public void setEventType1(String EventType1) {  this.EventType1= EventType1;  }
-	public void setEventType2(String EventType2) {  this.EventType1 = EventType2;  }
-	public void setEventCustom(String EventCustom) {  this.EventCustom= EventCustom;  }
-	public void setEventMaxLimit(int EventMaxLimit) {  this.EventMaxLimit= EventMaxLimit;  }
-	public void setEventFee(int EventFee) {  this.EventFee= EventFee;  }
-	public void setEventStatus(boolean True) {  this.EventStatus = True;  }
+	public int getEventID() {  return eventID;  }
+	public int getHostID() {  return hostID;  }
+	public String getEventDate() {  return eventDate;  }
+	public String getEventName() {  return eventName;  }
+	public String getEventStratTime() {  return eventStratTime;  }
+	public String getEventEndTime() {  return eventEndTime;  }
+	public String getEventLocation() {  return eventLocation;  }
+	public byte[] getEventPicture() {  return eventPicture;  }
+	public String getEventType1() {  return eventType1;  }
+	public String getEventType2() {  return eventType2;  }
+	public String getEventCustom() {  return eventCustom;  }
+	public int getEventMaxLimit() {  return eventMaxLimit;  }
+	public int getEventFee() {  return eventFee;  }
+	
+	
+	public void setEventID(int eventID) {  this.eventID= eventID;  }
+	public void setHostID(int hostID) {   this.hostID= hostID;  }
+	public void setEventDate(String eventDate ) {  this.eventDate= eventDate;  }
+	public void setEventName(String eventName ) {  this.eventName =eventName;  }
+	public void setEventStratTime(Timestamp ts) { 
+		String tsStr = "";  
+		DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");  
+		tsStr = sdf.format(ts);  
+		this.eventStratTime = tsStr ;  
+		}
+	public void setEventEndTime(Timestamp ts) { 
+		String tsStr = "";  
+		DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");  
+		tsStr = sdf.format(ts);  
+		this.eventEndTime = tsStr ;  
+ }
+	public void setEventLocation(String eventLocation) {  this.eventLocation = eventLocation;  }
+	public void setEventPicture(byte[] eventPicture) {  this.eventPicture = eventPicture;  }
+	public void setEventType1(String eventType1) {  this.eventType1= eventType1;  }
+	public void setEventType2(String eventType2) {  this.eventType2 = eventType2;  }
+	public void setEventCustom(String eventCustom) {  this.eventCustom= eventCustom;  }
+	public void setEventMaxLimit(int eventMaxLimit) {  this.eventMaxLimit= eventMaxLimit;  }
+	public void setEventFee(int eventFee) {  this.eventFee= eventFee;  }
+	public boolean isEventStatus() {
+		return eventStatus;
+	}
+	public void setEventStatus(boolean eventStatus) {
+		this.eventStatus = eventStatus;
+	}
+
+
 	
 
 
