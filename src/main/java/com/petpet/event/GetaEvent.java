@@ -24,7 +24,7 @@ import com.petpet.bean.EventBean;
 @WebServlet("/Getaevent")
 public class GetaEvent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static final String SQL="select * from event where EventID =¡@?";
+    private static final String SQL="select * from event where EventID =?";
 
     Connection conn ;
     
@@ -50,7 +50,6 @@ public class GetaEvent extends HttpServlet {
 			PreparedStatement stmt = conn.prepareStatement(SQL);
 			stmt.setString(1,EventID);
 			ResultSet rs= stmt.executeQuery();
-	
 			EventBean event = new EventBean();
 			
 			if (rs.next()) {
@@ -60,29 +59,22 @@ public class GetaEvent extends HttpServlet {
 				event.setEventStratTime(rs.getTimestamp("eventstarttime"));
 				event.setEventEndTime(rs.getTimestamp("eventendtime"));
 				event.setEventLocation(rs.getString("eventlocation"));
-				event.setEventType1(rs.getString("eventtype"));
-				event.setEventType2(rs.getString("eventtype1"));
+				event.setEventType(rs.getString("eventtype"));
+				event.setEventType1(rs.getString("eventtype1"));
 				event.setEventType2(rs.getString("eventtype2"));
+				event.setEventTypeCustom(rs.getString("eventtypecustom"));
 				event.setEventMaxLimit(rs.getInt("eventmaxlimit"));
 				event.setEventFee(rs.getInt("eventfee"));	
 			}
 			System.out.println(event.getEventName()) ;
 			request.setAttribute("event", event);
 			
-//			EventBean event = null ;
-//			EmpBean emp = null;
-	
-//			event.setEventName((String)rs.getString("EventName"));
-//			emp.setEname(rs.getString("ename"));
-			
+
 			System.out.println("moooooooo") ;
 			stmt.close();
 
-//			System.out.println(event.getEventName()) ;
-//			System.out.println(emp.getEname()) ;
-
 			request.getRequestDispatcher("/event/getaevent.jsp").forward(request,response);
-			System.out.println("¶]¨ì³Ì«á") ;
+			System.out.println("ï¿½]ï¿½ï¿½Ì«ï¿½") ;
 		}
 		catch(SQLException e) {
 			e.printStackTrace();

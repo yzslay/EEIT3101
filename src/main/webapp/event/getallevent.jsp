@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="BIG5"  import="java.util.* , com.petpet.bean.EventBean" %>
+    pageEncoding="UTF-8"  import="java.util.* , com.petpet.bean.EventBean" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%! @SuppressWarnings("unchecked") %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="BIG5">
-<title>¬¡°Ê­¶­±</title>
+<head> 
+<meta charset="UTF-8">
+<title> æ´»å‹•é é¢</title>
 <style>
 
 </style>
@@ -16,34 +16,33 @@
 </head>
 <body style="background-color:#fdf5e6">
 
-<h2>­û¤u¸ê®Æ</h2>
+<h2>æ´»å‹•è³‡æ–™</h2>
 <table>
     <tr>
-        <th>¬¡°Ê¦WºÙ</th> <th>¬¡°Ê¤é´Á</th> <th>¬¡°Ê°_©l®É¶¡</th> <th>¬¡°Ê¦aÂI</th> 
-		<th>¬¡°ÊºØÃş</th><th>¬¡°Ê¤H¼Æ¤W­­</th> <th>¬¡°Ê¶O¥Î</th><th>­×§ï</th><th>§R°£</th>
+        <th>æ´»å‹•åç¨±</th> <th>æ´»å‹•æ—¥æœŸ</th> <th>æ´»å‹•èµ·å§‹æ™‚é–“</th> <th>æ´»å‹•åœ°é»</th> 
+		<th>æ´»å‹•ç¨®é¡</th><th>æ´»å‹•äººæ•¸ä¸Šé™</th> <th>æ´»å‹•è²»ç”¨</th><th>ä¿®æ”¹</th><th>åˆªé™¤</th>
     </tr>
     <c:forEach items="${events}" var="event" varStatus="s">
     <tr>
-    	<td>${event.eventName}</td> <td>${event.eventDate}</td><td>${event.eventStratTime}</td><td>${event.eventLocation}</td>
-    	<td>${event.eventType}<br>${event.eventType1}</td><td>${event.eventMaxLimit}</td><td>${event.eventFee}</td>
-    	<td><input type="button" value="½T»{" name="eventID" onclick="location.href='./Getaevent?eventid=${event.eventID}'"> </td>
-    	<td><input type="button" value="½T»{" name="eventID" onclick="location.href='./deleteevent?eventid=${event.eventID}'"> </td>
+    	<td> <a href="./Getaevent?eventid=${event.eventID}" title="${event.eventName}"> ${event.eventName} </a> </td> <td>${event.eventDate}</td><td>${event.eventStratTime}</td><td>${event.eventLocation}</td>
+    	<td>${event.eventType}<br>
+    	<c:out value="${event.eventType1}" default="" /> <br> 
+    	<c:out value="${event.eventType2}"  default="æœªè¨­å®š" /> <br> 
+    	<c:out value="${event.eventTypeCustom}" default="æœªè¨­å®š" />
+    	</td>
+    	<td>${event.eventMaxLimit}</td>
+    	<td>${event.eventFee}</td>
+    	<td><input type="button" value="ç¢ºèª" name="eventID" onclick="location.href='/EEIT/Getaevent?eventid=${event.eventID}'"> </td>
+    	<td><input type="button" value="ç¢ºèª" name="eventID" onclick="location.href='/EEIT/deleteevent?eventid=${event.eventID}'"> </td>
     </tr>
     </c:forEach>
+  
 </table>
-         <script>
-            $('#btn1').click(function(){
-            $('input').removeAttr("readonly");//ÁôÂÃ¤¸¯À :button »Pbutton
-            });
-            function modifyemp(){
-                //        document.("ªí³æªºname­È").action
-                //        document.("ªí³æªºname­È").submit
-                        document.submitselection.action="./ModifyEmployee";
 
-                    }
-                       function deleteemp() {
-                        document.submitselection.action = "./deleteemp";
-                    }
+<input type="button" value="æ–°å¢æ´»å‹•" onclick="location.href='/EEIT/event/createvent.jsp'">
+
+         <script>
+ 
 
         
  </script>

@@ -20,17 +20,13 @@ import com.petpet.bean.EventBean;
 @WebServlet("/ModifyEvent")
 public class ModifyEvent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String SQL = "UPDATE event SET  eventname = ?, eventdate = ?, eventstarttime = ?,eventendtime =? "
-			+ " eventlocation = ?, eventtype = ?, eventtype1 = ?, eventtype2 = ?,eventcustom =?   "
-			+ "eventmaxlimit = ?, eventfee = ?, eventdescribe = ?,  hostid=100001"
-			+ "WHERE eventID = ?";
+	private static final String SQL = "UPDATE event SET eventname = ?, eventdate = ?, eventstarttime = ?,eventendtime =? , eventlocation = ?, eventtype = ?, eventtype1 = ?, eventtype2 = ?,eventtypecustom =?  , eventmaxlimit = ?, eventfee = ?, eventdescribe = ?,  hostid=100001  WHERE eventid = ?";
 	
 	Connection conn ;
 
     public ModifyEvent() {
         super();
     }
-
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
@@ -39,47 +35,57 @@ public class ModifyEvent extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			request.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html;charset=UTF-8");
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)context.lookup("java:/comp/env/jdbc/petpet");
 			conn = ds.getConnection();
-		
-		EventBean.setEventID((Int)(request.getParameter("eventname")));
-		EventBean.setEname((String)(request.getParameter("eventdate")));
-		EventBean.setHiredate((String)(request.getParameter("eventstarttime")));
-		EventBean.setSalary((String)(request.getParameter("eventendtime")));
-		EventBean.setDeptno((String)(request.getParameter("eventlocation")));
-		EventBean.setTitle((String)(request.getParameter("eventtype")));
-		EventBean.setEmpno((String)(request.getParameter("eventtype1")));
-		EventBean.setEname((String)(request.getParameter("eventtype2")));
-		EventBean.setHiredate((String)(request.getParameter("eventcustom")));
-		EventBean.setSalary((String)(request.getParameter("eventmaxlimit")));
-		EventBean.setDeptno((String)(request.getParameter("eventfee")));
-		EventBean.setTitle((String)(request.getParameter("eventdescribe")));
-		EventBean.setTitle((String)(request.getParameter("eventdescribe")));
+			EventBean event = new EventBean();
+			event.setEventID(Integer.parseInt(request.getParameter("eventid")));
+			System.out.println(Integer.parseInt(request.getParameter("eventid")));
+			event.setEventName((String)(request.getParameter("eventname")));
+			event.setEventDate((String)(request.getParameter("eventdate")));
+			event.setEventStratTime((String)(request.getParameter("eventstarttime")));
+			event.setEventEndTime((String)(request.getParameter("eventendtime")));
+			event.setEventLocation((String)(request.getParameter("eventlocation")));
+			event.setEventType((String)(request.getParameter("eventtype")));
+			event.setEventType1((String)(request.getParameter("eventtype1")));
+			event.setEventType2((String)(request.getParameter("eventtype2")));
+			event.setEventTypeCustom((String)(request.getParameter("eventtypecustom")));
+			event.setEventMaxLimit(Integer.parseInt(request.getParameter("eventmaxlimit")));
+			event.setEventFee(Integer.parseInt(request.getParameter("eventfee")));
+			event.setEventDescribe((String)(request.getParameter("eventdescribe")));
          
-        PreparedStatement statement = conn.prepareStatement(SQL);
-        statement.setString(6, empbean.getEmpno());
-        statement.setString(1, empbean.getEname());
-        statement.setString(2, empbean.getHiredate());
-        statement.setString(3, empbean.getSalary());
-        statement.setString(4, empbean.getDeptno());
-        statement.setString(5, empbean.getTitle());        
-        boolean rowInserted = statement.executeUpdate() > 0;
-        System.out.println(rowInserted);
-        if (rowInserted) {
-        	request.setAttribute("emps", empbean);
-        	request.getRequestDispatcher("/HW/correct.jsp").forward(request,response);    	
-	    }else {
-        	request.getRequestDispatcher("/HW/error.html").forward(request,response);
-        }
+			PreparedStatement statement = conn.prepareStatement(SQL);
+			statement.setString(1, event.getEventName());
+			statement.setString(2, event.getEventDate());
+			statement.setString(3, event.getEventStratTime());
+			statement.setString(4, event.getEventEndTime());
+			statement.setString(5, event.getEventLocation());
+			statement.setString(6, event.getEventType());
+			statement.setString(7, event.getEventType1());
+			statement.setString(8, event.getEventType2());
+			statement.setString(9, event.getEventTypeCustom());
+			statement.setInt(10, event.getEventMaxLimit());
+			statement.setInt(11, event.getEventFee());   
+			statement.setString(12, event.getEventDescribe());   
+			statement.setInt(13, event.getEventID());   
+			boolean rowInserted = statement.executeUpdate() > 0;
+			System.out.println(rowInserted);
+			if (rowInserted) {
+				request.setAttribute("event", event);
+				request.getRequestDispatcher("/event/correct.jsp").forward(request,response);    	
+			}else {
+				request.getRequestDispatcher("/event/error.html").forward(request,response);
+			}
 
 		}catch (SQLException e) {
 			e.printStackTrace();
-			request.getRequestDispatcher("/HW/error.html").forward(request,response);
+			request.getRequestDispatcher("/event/error.html").forward(request,response);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			request.getRequestDispatcher("/HW/error.html").forward(request,response);
+			request.getRequestDispatcher("/event/error.html").forward(request,response);
 		} finally {
 			if (conn != null)
 				try {
