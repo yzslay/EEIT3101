@@ -50,13 +50,13 @@ public class EventBean implements java.io.Serializable {
 	public void setEventName(String eventName ) {  this.eventName =eventName;  }
 	public void setEventStratTime(Timestamp ts) { 
 		String tsStr = "";  
-		DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");  
+		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");  
 		tsStr = sdf.format(ts);  
 		this.eventStratTime = tsStr ;  
 		}
 	public void setEventStratTime(String date) { 
 		  try {
-		      DateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+		      DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		       // you can change format of date
 		      Date datetime = formatter.parse(date);
 		      Timestamp timeStampDate = new Timestamp(datetime.getTime());
@@ -70,13 +70,13 @@ public class EventBean implements java.io.Serializable {
 	
 	public void setEventEndTime(Timestamp ts) { 
 		String tsStr = "";  
-		DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");  
+		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");  
 		tsStr = sdf.format(ts);  
 		this.eventEndTime = tsStr ;  
  }
 	public void setEventEndTime(String date) { 
 		  try {
-		      DateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+		      DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		       // you can change format of date
 		      Date datetime = formatter.parse(date);
 		      Timestamp timeStampDate = new Timestamp(datetime.getTime());

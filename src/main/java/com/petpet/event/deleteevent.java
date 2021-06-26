@@ -21,8 +21,8 @@ import com.petpet.bean.EventBean;
 @WebServlet("/deleteevent")
 public class deleteevent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private  String SQLDelete = "DELETE FROM event where eventid = ?";
-	private  String SQL = "select * from event where eventid =¡@?";
+	private  String SQLDelete = "DELETE FROM event where eventid = ? ";
+	private  String SQL = "select * from event where eventid =  ?";
 	Connection conn ;
 
     public deleteevent() {
