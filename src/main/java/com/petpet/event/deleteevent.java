@@ -2,12 +2,9 @@ package com.petpet.event;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -20,16 +17,16 @@ import javax.sql.DataSource;
 
 import com.petpet.bean.EventBean;
 
-@WebServlet("/Getallevent")
-public class GetEvents extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-    private static final String SQL="select * from event";
 
-    Connection conn ;
-    
-    public GetEvents() {
+@WebServlet("/deleteevent")
+public class deleteevent extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private  String SQLDelete = "DELETE FROM event where eventid = ?";
+	private  String SQL = "select * from event where eventid =¡@?";
+	Connection conn ;
+
+    public deleteevent() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,17 +36,18 @@ public class GetEvents extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html;charset=UTF-8"); 
+			String eventid = request.getParameter("eventid");
+			
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)context.lookup("java:/comp/env/jdbc/petpet");
 			conn = ds.getConnection();
 			
 			PreparedStatement stmt = conn.prepareStatement(SQL);
-			ResultSet rs= stmt.executeQuery();	
-			List<EventBean> events = new ArrayList<>();
-			EventBean event = null ;
-
-			while (rs.next()) {
-				event = new EventBean();
+			stmt.setString(1,eventid);
+			ResultSet rs= stmt.executeQuery();
+			EventBean event = new EventBean();
+			if (rs.next()) {
 				event.setEventID(rs.getInt("eventid"));
 				event.setEventName(rs.getString("eventname"));
 				event.setEventDate(rs.getString("eventdate"));
@@ -61,38 +59,37 @@ public class GetEvents extends HttpServlet {
 				event.setEventType2(rs.getString("eventtype2"));
 				event.setEventTypeCustom(rs.getString("eventtypecustom"));
 				event.setEventMaxLimit(rs.getInt("eventmaxlimit"));
-				event.setEventFee(rs.getInt("eventfee"));
-				System.out.println(event.getEventStratTime()) ;
-				events.add(event);
+				event.setEventFee(rs.getInt("eventfee"));	
+				event.setEventDescribe((rs.getString("eventdescribe")));
 		
-
 			}
-			request.setAttribute("events", events);		
-//			EventBean event = null ;
-//			EmpBean emp = null;
-//			event.setEventName((String)rs.getString("EventName"));
-//			emp.setEname(rs.getString("ename"));
-		
-			stmt.close();
-//			System.out.println(event.getEventName()) ;
-//			System.out.println(emp.getEname()) ;
-			request.getRequestDispatcher("/event/getallevent.jsp").forward(request,response);
-			System.out.println("¶]¨ì³Ì«á") ;
-		}
-		catch(SQLException e) {
-			e.printStackTrace();
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null)
-				try {
-					conn.close();
-				} catch(SQLException e) { 
-					e.printStackTrace();
-				}
-	
-	}
+			request.setAttribute("event", event);
 
+			PreparedStatement stmtdelete = conn.prepareStatement(SQLDelete);
+			stmtdelete.setString(1,eventid);								
+	        boolean rowInserted = stmtdelete.executeUpdate() > 0;
+	        System.out.println(rowInserted);
+	        if (rowInserted) {
+	        	request.getRequestDispatcher("/event/deletecorrect.jsp").forward(request,response);    	
+		    }else {
+	        	request.getRequestDispatcher("/event/error.html").forward(request,response);
+	        }
+	
+			}catch (SQLException e) {
+				e.printStackTrace();
+				request.getRequestDispatcher("/event/error.html").forward(request,response);
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+				request.getRequestDispatcher("/event/error.html").forward(request,response);
+			} finally {
+				if (conn != null)
+					try {
+						conn.close();
+					} catch(SQLException e) { 
+						e.printStackTrace();
+					}
+
+		}
 	}
 }
