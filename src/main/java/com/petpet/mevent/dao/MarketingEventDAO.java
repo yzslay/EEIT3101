@@ -44,6 +44,30 @@ private Connection conn;
 		return listbean;
 	};
 	
+	public List<MarketingEventBean> query(String sql) throws SQLException{
+		List<MarketingEventBean> listbean = new ArrayList<>();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		while(rs.next()) {
+			MarketingEventBean bean =new MarketingEventBean();
+			bean.setMeventid(rs.getInt("meventid"));
+			bean.setMeventtitle(rs.getString("meventtitle"));
+			if(rs.getObject("meventpicture")==null) {}else{bean.setMeventpicture(rs.getBlob("meventpicture").getBytes(1, (int)rs.getBlob("meventpicture").length()));};
+			bean.setMeventstartdate(rs.getTimestamp("meventstartdate"));
+			bean.setMeventenddate(rs.getTimestamp("meventenddate"));
+			bean.setMeventname(rs.getString("meventname"));
+			bean.setMeventdescription(rs.getString("meventdescription"));
+			bean.setMeventtypeid(rs.getInt("meventtypeid"));
+			bean.setMeventownerid(rs.getInt("meventownerid"));
+			bean.setMeventonline(rs.getBoolean("meventonline"));
+			listbean.add(bean);
+		}
+		rs.close();
+		stmt.close();
+		disconnect();
+		return listbean;
+	};
+	
 	public MarketingEventBean get(int eid) throws SQLException{
 		String sql = "SELECT * FROM MarketingEvent WHERE meventid = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);

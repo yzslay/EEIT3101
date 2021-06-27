@@ -47,15 +47,15 @@
 		<div class="w3-top">
 			<div class="w3-row w3-large " style="background-color: #97EBBE; color: #55876D">
 				<div class="w3-col s3">
-					<a href="<c:url value="${basePath }"><c:param name="action" value="list" /></c:url>" class="w3-button w3-block">回到列表</a>
+					<a href="<c:url value="${basePath }"><c:param name="action" value="list" /></c:url>" class="w3-button w3-block">回到總表</a>
 				</div>
 				<div class="w3-col s3">
 					<a href="<c:url value="${basePath}"><c:param name="action" value="new" /></c:url>" class="w3-button w3-block">新增活動</a>
 				</div>
-			<!--  	<div class="w3-col s3">
-					<a href="#about" class="w3-button w3-block">About</a>
+			  	<div class="w3-col s3">
+					<a href="<c:url value="${basePath}"><c:param name="action" value="search" /></c:url>" class="w3-button w3-block">查詢活動</a>
 				</div>
-				<div class="w3-col s3">
+			<!--	<div class="w3-col s3">
 					<a href="#contact" class="w3-button w3-block">Contact</a>
 				</div>  -->
 			</div>
@@ -191,7 +191,7 @@
 												</c:when>
 												<c:otherwise></c:otherwise>
 											</c:choose> 
-											<input type="file" name="pic" id="file1" multiple="multiple">預覽:<img id="img1">
+											<input type="file" name="pic" id="file1" multiple="multiple"><hr>預覽:<br><img id="img1">
 										</td>
 									</tr>
 									<tr>
@@ -210,8 +210,6 @@
 				</div>
 				<!-- Footer -->
 				<footer class="w3-container w3-center" style="background-color: #DAF88F; color: #809D66">
-					<a href="#" class="w3-button w3-margin-top" style="background-color: #467E14; color: #C9F89F">
-						<i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
 					<p>
 						報告組別&amp;報告人<br> 第7組 petpet寵物網 &nbsp;&nbsp;&nbsp;42 鄭雅心
 					<p>

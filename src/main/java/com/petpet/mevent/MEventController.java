@@ -51,6 +51,12 @@ public class MEventController extends HttpServlet {
             case "update":
                 updateMEvent(request, response);
                 break;
+            case "search":
+            	showSearchForm(request,response);
+            	break;
+            case "query":
+            	queryMEvent(request,response);
+            	break;
             default:
                 listMEvent(request, response);
                 break;
@@ -97,6 +103,12 @@ public class MEventController extends HttpServlet {
         request.setAttribute("mevent", existingmevent);
         dispatcher.forward(request, response);
  
+    }
+	
+	private void showSearchForm(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/mevent/QueryMEvent.jsp");
+        dispatcher.forward(request, response);
     }
 	
 	private void insertMEvent(HttpServletRequest request, HttpServletResponse response)
@@ -157,7 +169,7 @@ public class MEventController extends HttpServlet {
     }
 	
 	private void deleteMEvent(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
+			throws SQLException, IOException {
 		int eid=Integer.parseInt(request.getParameter("eid"));
 		MarketingEventBean mevent = new MarketingEventBean();
 	    mevent.setMeventid(eid);
@@ -165,6 +177,19 @@ public class MEventController extends HttpServlet {
         medao.delete(mevent);
         response.sendRedirect("/EEIT3101/mevent");
     }
+	
+	private void queryMEvent(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		String name=request.getParameter("name");
+		System.out.println(name);
+		String sql="SELECT * FROM MarketingEvent WHERE meventname LIKE '%"+name+"%'";
+		System.out.println(sql);
+		medao = new MarketingEventDAO(connect());
+		List<MarketingEventBean> mevents =medao.query(sql);
+		request.setAttribute("mevents", mevents);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/mevent/ListMEvent.jsp");
+        dispatcher.forward(request, response);
+	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

@@ -58,15 +58,15 @@ del{
 		<div class="w3-row w3-large "
 			style="background-color: #97EBBE; color: #55876D">
 			<div class="w3-col s3">
-				<a href="<c:url value="${basePath}"><c:param name="action" value="list" /></c:url>" class="w3-button w3-block">回到列表</a>
+				<a href="<c:url value="${basePath}"><c:param name="action" value="list" /></c:url>" class="w3-button w3-block">回到總表</a>
 			</div>
 			<div class="w3-col s3">
 				<a href="<c:url value="${basePath}"><c:param name="action" value="new" /></c:url>" class="w3-button w3-block">新增活動</a>
 		  	</div>
-		<!--	<div class="w3-col s3">
-				<a href="#about" class="w3-button w3-block">About</a>
-			</div>
 			<div class="w3-col s3">
+				<a href="<c:url value="${basePath}"><c:param name="action" value="search" /></c:url>" class="w3-button w3-block">查詢活動</a>
+			</div>
+		<!--	<div class="w3-col s3">
 				<a href="#contact" class="w3-button w3-block">Contact</a>
 			</div>  -->
 		</div>
