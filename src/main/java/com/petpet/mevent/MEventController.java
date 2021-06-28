@@ -144,7 +144,8 @@ public class MEventController extends HttpServlet {
 		String title = request.getParameter("title");
 		InputStream pic;
 		if(request.getPart("pic").getSubmittedFileName()=="") {
-			pic = new ByteArrayInputStream(medao.get(id).getMeventpicture());
+			if(medao.get(id).getMeventpicture()==null) {pic=null;}else {
+			pic = new ByteArrayInputStream(medao.get(id).getMeventpicture());}
 		}else {pic = request.getPart("pic").getInputStream();}       
 		Timestamp startdate = Timestamp.valueOf(request.getParameter("startdate")+" "+request.getParameter("starttime"));
 		Timestamp enddate = Timestamp.valueOf(request.getParameter("enddate")+" "+request.getParameter("endtime"));
@@ -156,7 +157,7 @@ public class MEventController extends HttpServlet {
         MarketingEventBean mevent = new MarketingEventBean();
         mevent.setMeventid(id);
         mevent.setMeventtitle(title);
-        mevent.setMeventpicture(pic.readAllBytes());
+        if(pic==null) {mevent.setMeventpicture(null);}else{mevent.setMeventpicture(pic.readAllBytes());}
         mevent.setMeventstartdate(startdate);
         mevent.setMeventenddate(enddate);
         mevent.setMeventname(name);

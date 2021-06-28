@@ -1,6 +1,9 @@
 document.getElementById("file1").addEventListener("change",fileviewer);
+$("input#name").focus(clear);
 $("input#name").blur(check);
+$("input[type='date']").focus(clear);
 $("input[type='date']").blur(check);
+$("input[type='time']").focus(clear);
 $("input[type='time']").blur(check);
 $("#btn").click(submit);
 
@@ -15,10 +18,15 @@ function fileviewer() {
 	reader.readAsDataURL(file);
 }
 
+function clear(){
+	$("span#spname").empty();
+}
+
 function check(){
 	let Val = $(this).val();
 	if (Val == "") {
-		$(this).next().css("color","red").append("<b>╳不可空白</b>")
+		console.log($(this).next());
+		$(this).next().css("color","red").append("<b>╳不可空白</b>");
 	}else{
 		$(this).next().empty();
 	}

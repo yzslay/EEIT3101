@@ -119,7 +119,7 @@ private Connection conn;
 		String sql = "UPDATE MarketingEvent SET meventtitle=?,meventpicture=?,meventstartdate=?,meventenddate=?,meventname=?,meventdescription=?,meventtypeid=?,meventownerid=?,meventonline=? WHERE meventid=?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setString(1, bean.getMeventtitle());
-		stmt.setBinaryStream(2, new ByteArrayInputStream(bean.getMeventpicture()));
+		if(bean.getMeventpicture()==null) {stmt.setBinaryStream(2, null);}else{stmt.setBinaryStream(2, new ByteArrayInputStream(bean.getMeventpicture()));}
 		stmt.setTimestamp(3, bean.getMeventstartdate());
 		stmt.setTimestamp(4, bean.getMeventenddate());
 		stmt.setString(5, bean.getMeventname());
