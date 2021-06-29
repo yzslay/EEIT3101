@@ -40,7 +40,10 @@ nav ul{
 nav ul li a{
   color:deepblue;
   padding:15px;
+  font-size:28px;
+  margin:40px;
 }
+
 
 footer{
   background-color:#58876D;
@@ -53,10 +56,17 @@ footer{
 .anchor::before {
 content: "";
 display: block;
-height: 5px;
+height: 30px;
 }
+.mid{
 
-
+	margin:15px auto;
+	text-align:center;
+	}
+table{
+	margin: auto;
+	
+}
 
 </style>
 </head>
@@ -71,14 +81,8 @@ height: 5px;
 	</nav>
 	
 	
-<div class="container">
-<div class="row">
-	<div class="col">
-<h3 class="anchor">新增成功，新增資料如下</h3>
-	</div>
-</div>
-<div class="row">
-	<div class="col">
+
+<div class="mid">
 <table class="anchor   table-striped ">
     <thead>
         <tr>
@@ -134,10 +138,8 @@ height: 5px;
 </table>
 </div>
 </div>
-</div>
-
 <footer>
-    第六組
+	第八組組員-蕭詠謙
 </footer>
 </body>
 </html>

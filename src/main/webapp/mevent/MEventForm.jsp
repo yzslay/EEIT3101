@@ -8,6 +8,7 @@
 	<% String path=request.getContextPath();
 	   String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/"+"mevent";
 	   System.out.println(basePath);%>
+	   <!-- 從servlet獲得圖案的路徑 -->
 	<base href="<%=basePath%>">
 	<meta charset="UTF-8">
 	<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
@@ -72,6 +73,7 @@
 							<c:if test="${mevent != null }">
 								<form method="post" action="<c:url value="${basePath}"><c:param name="action" value="update" /></c:url>" enctype="multipart/form-data" id="updateform">
 							</c:if>
+
 							<c:if test="${mevent == null }">
 								<form method="post" action="<c:url value="${basePath}"><c:param name="action" value="insert" /></c:url>" enctype="multipart/form-data">
 							</c:if>

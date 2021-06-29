@@ -47,6 +47,8 @@ nav ul{
 nav ul li a{
   color:deepblue;
   padding:15px;
+  font-size:28px;
+  margin:40px;
 }
 
 footer{
@@ -77,7 +79,7 @@ height: 70px;
 	</nav>	
 			
 <div class="container anchor">
-    <form method="post" name="createvent" action="/EEIT/insertevent" >  
+    <form method="post" name="createvent" action="/EEIT/insertevent">  
       	<div class="row">
             <div class="col">
             活動名稱 :<br> <input type="text" class="form-control" required name="eventname"  placeholder="請輸入活動名稱"/>
@@ -142,17 +144,22 @@ height: 70px;
           活動人數上限: <br><input type="text" class="form-control" required  name="eventmaxlimit" placeholder="請輸入活動人數" /><p>
           </div>
           <div class="col">
-          活動費用:<br><input type="text"  name="eventfee" placeholder="請輸入活動費用"  /><p>
+          活動費用:<br><input type="text"  name="eventfee" required placeholder="請輸入活動費用"  />
+          <small class="form-text text-muted">
+	      必填欄位
+		  </small>    
+          <p>
           </div>
       </div>
       <div>
         活動說明:<br><textarea name="eventdescribe"  placeholder="請輸入活動說明"  rows="5" cols="100"></textarea>
-   		</div>
-        <button type="submit" class="btn btn-primary">確認修改</button>
+   	 </div>
+        <button type="submit" class="btn btn-primary">確認</button>
      </form>
-     </div>
+</div>
+
 <footer>
-    第六組
+	第八組組員-蕭詠謙
 </footer>
 <script>
 $( "#date" ).datepicker(

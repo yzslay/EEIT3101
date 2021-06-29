@@ -32,12 +32,14 @@ nav ul{
 nav ul li a{
   color:deepblue;
   padding:15px;
+  font-size:28px;
+  margin:40px;
 }
 
 .anchor::before {
 content: "";
 display: block;
-height: 40px;
+height: 80px;
 }
 footer{
   background-color:#58876D;
@@ -49,7 +51,7 @@ footer{
 }
 </style>
 <meta charset="UTF-8">
-<title>員工資料</title>
+<title>修改活動資料</title>
 </head>
 
 
@@ -64,8 +66,8 @@ footer{
 	
 <div class="container anchor">
     <form method="post" name="submitselection" action="./ModifyEvent" >  
-    	<br> <input type="hidden"  readonly name="eventid" value="${event.eventID}" />
-    	<p> 
+    	 <input type="hidden"  readonly name="eventid" value="${event.eventID}" />
+   
 
     	<div class="row"> 
     		<div class="col">
@@ -77,10 +79,11 @@ footer{
         	</div>
         	<div class="col">
       		  活動日期: <br><input type="text" class="form-control" required name="eventdate" id="date" value ="${event.eventDate}" /><p>
-      		</div>
-      			<small class="form-text text-muted">
+      		     <small class="form-text text-muted">
 	        	必填欄位
-				</small>
+				</small>      		
+      		</div>
+
       	</div>
       	<div class="row">
             <div class="col">
@@ -129,20 +132,23 @@ footer{
 		        活動人數上限: <br><input type="text"  class="form-control" required name="eventmaxlimit"value ="${event.eventMaxLimit}" /><p>
 		    </div>
 		    <div class="col">
-        	活動費用:<br><input type="text"  name="eventfee"  value ="${event.eventFee}" /><p>
+        	活動費用:<br><input type="text"  name="eventfee"  value ="${event.eventFee}" />
+        	 <small class="form-text text-muted">
+		     必填欄位
+			 </small>  <p>
         	</div>
         </div>
         <div>
         活動說明:<br><textarea name="eventdescribe"  rows="5" cols="50"> ${event.eventDescribe} </textarea><p>
    		</div>
-        <button type="submit" class="btn btn-primary">確認修改</button>
+        <button type="submit" class="btn btn-primary">確認</button>
      </form>
 </div>
 
     
-     <footer>
-        第六組
-    </footer> 
+<footer>
+	第八組組員-蕭詠謙
+</footer>
     
     <script>
     $( "#date" ).datepicker(

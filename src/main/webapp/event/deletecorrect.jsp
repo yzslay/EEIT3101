@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-<title>新增成功</title>
+<title>刪除成功</title>
  <!-- Latest compiled and minified CSS -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
  <!-- jQuery library -->
@@ -42,7 +42,10 @@ nav ul{
 nav ul li a{
   color:deepblue;
   padding:15px;
+  font-size:28px;
+  margin:40px;
 }
+
 
 footer{
   background-color:#58876D;
@@ -55,7 +58,7 @@ footer{
 .anchor::before {
 content: "";
 display: block;
-height: 5px;
+height: 15px;
 }
 
 
@@ -66,7 +69,16 @@ th, td {
   padding: 15px;
   text-align: left;
 }
-tr:nth-child(even) {background-color: #f2f2f2;}
+.mid{
+
+	margin:15px auto;
+	text-align:center;
+	}
+table{
+	margin: auto;
+	
+}
+
 </style>
 </head>
 <body>
@@ -78,11 +90,16 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 			<li><a href="about" class="href">about</a> 	</li>
 		</ul>
 	</nav>
+	
+<div class="container">
+<div class="row">
+	<div class="col">
+<h3 class="anchor">刪除成功，刪除資料如下</h3>
+</div>
 
-
-<h3>刪除成功，刪除資料如下</h3>
-<div class="container-md justify-content-center">
-<table class="anchor table-sm  table-striped">
+</div>
+<div class="mid">
+<table class="anchor table-striped">
     <thead>
         <tr>
             <th colspan="2">活動刪除內容</th>
@@ -90,7 +107,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     </thead>
     <tbody>
         <tr>
-            <td>活動名稱:</td>
+            <td>活動名稱 :</td>
             <td>${event.eventName}</td>
         </tr>
         <tr>
@@ -98,7 +115,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
             <td>${event.eventDate}</td>
         </tr>
         <tr>
-            <td>活動開始時間:</td>
+            <td>活動起始時間:</td>
             <td>${event.eventStratTime}</td>
         </tr>
         <tr>
@@ -132,13 +149,14 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         <tr>
             <td>活動說明:</td>
             <td>${event.eventDescribe}</td>
-        </tr>
-        
+        </tr>        
     </tbody>
 </table>
 </div>
+</div>
+
 <footer>
-    第六組
+	第八組組員-蕭詠謙
 </footer>
 
 </body>

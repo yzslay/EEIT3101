@@ -74,7 +74,7 @@ public class GetaEvent extends HttpServlet {
 			stmt.close();
 
 			request.getRequestDispatcher("/event/getaevent.jsp").forward(request,response);
-			System.out.println("�]��̫�") ;
+
 		}
 		catch(SQLException e) {
 			e.printStackTrace();

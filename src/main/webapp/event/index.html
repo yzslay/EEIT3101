@@ -1,15 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>期中專題</title>
 
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<!-- Latest compiled and minified CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ <!-- jQuery library -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <!-- Popper JS -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> 
+ <!-- Latest compiled JavaScript -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<title>期中專題</title>
+<style>
+nav {
+  background-color: #60CA91;
+  padding:13px;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:100;
+}
+nav ul{
+  display:flex;
+  margin:0 auto;
+  padding:0;
+  justify-content:center;
+  list-style-type: none;
+}
+nav ul li a{
+  color:deepblue;
+  padding:15px;
+  font-size:28px;
+  margin:40px;
+}
+td {
+  text-align: center;
+}
+footer{
+  background-color:#58876D;
+  padding:13px;
+  margin:0px;
+  font-size:20px;
+  text-align: center;
+  font-weight:bolder;
+}
+.anchor::before {
+content: "";
+display: block;
+height: 70px;
+}
+img{
+	max-width:600px;
+	/* display: block;
+	margin:10px auto;
+	 */
+	
+}
+.mid{
+
+	margin:15px auto;
+	text-align:center;
+	}
+</style>
 </head>	
 <body>
+	<nav>
+		<ul>
+			<li><a href="/EEIT/Getallevent" class="href">查詢所有活動</a> 	</li>
+			<li><a href="/EEIT/event/createvent.jsp" class="href">新增活動</a> 	</li>
+			<li><a href="about" class="href">about</a> 	</li>
+		</ul>
+	</nav>
+
+<div class="container mid">
 
 
-
-<h1>Event 查詢</h1>
+<h1 class="container anchor">第六組petpet寵物網-活動部分CRUD</h1>
 
  <input type="button" value="查詢所有活動" name="eventID" onclick="location.href='/EEIT/Getallevent'"> 
 
@@ -17,8 +94,14 @@
 <form>
 <input type="button" value="新增活動" onclick="location.href='/EEIT/event/createvent.jsp'">
 </form>
+</div>
 
-
+<div  class="mid">
+<img src="/EEIT/event/pic/indexpui.jpg" alt="puiindex">
+</div>
+<footer>
+	第八組組員-蕭詠謙
+</footer>
 
 </body>
 </html>

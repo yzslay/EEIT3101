@@ -49,6 +49,10 @@ nav ul{
 nav ul li a{
   color:deepblue;
   padding:15px;
+  font-size:28px;
+  margin:40px;
+}
+
 }
 td {
   text-align: center;
@@ -61,6 +65,11 @@ footer{
   text-align: center;
   font-weight:bolder;
 }
+.anchor::before {
+content: "";
+display: block;
+height: 70px;
+}
 
 </style>
 <script>
@@ -68,16 +77,16 @@ footer{
 </script>
 </head>
 <body>
-	<nav>
+    <nav>
 		<ul>
 			<li><a href="/EEIT/Getallevent" class="href">查詢所有活動</a> 	</li>
 			<li><a href="/EEIT/event/createvent.jsp" class="href">新增活動</a> 	</li>
 			<li><a href="about" class="href">about</a> 	</li>
 		</ul>
-	</nav>
+	</nav>	
 
-<h2>活動資料</h2>
-<div class="container" >
+
+<div class="container anchor " >
 <table class="table table-hover">
 	<thead class="thead-dark">
 		<tr>
@@ -96,9 +105,9 @@ footer{
 			</td>
 			<td>${event.eventMaxLimit}</td>
 			<td>${event.eventFee}</td>
-			<td><input type="button" value="修改" name="eventID" onclick="location.href='/EEIT/Getaevent?eventid=${event.eventID}'"> <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+			<td><input type="button" value="修改" name="eventID" onclick="location.href='/EEIT/Getaevent?eventid=${event.eventID}'"> <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
 			</td>
-			<td><input type="button" class="delete" value="刪除" name="eventID" onclick="deleteItem(${event.eventID})"><i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+			<td><input type="button" class="delete" value="刪除" name="eventID" onclick="deleteItem(${event.eventID})"><i class="fa fa-trash fa-1x" aria-hidden="true"></i>
 			</td>
 		</tr>
   		</c:forEach>
@@ -109,7 +118,7 @@ footer{
 
 
 <footer>
-	第六組
+	第八組組員-蕭詠謙
 </footer>
 
 
@@ -117,7 +126,7 @@ footer{
 <script>
  
 function deleteItem(ID) {
-    if (confirm("Are you sure?")) {
+    if (confirm("你確定要刪除這個活動嗎")) {
 
     	let  web="/EEIT/deleteevent?eventid="+ID;
     	window.location.href=web;
