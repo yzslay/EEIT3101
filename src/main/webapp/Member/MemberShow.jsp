@@ -66,7 +66,7 @@
 <body id="third" class="back" background="image/Back.jpg">
     <div id="first" class="container show loadText" align="center">準備載入頁面......</div>
     <div id="second" class="container outSide hide">
-        <jsp:useBean id="member" scope="request" class="com.lcpan.myTestLab.LoginBean" />
+        <jsp:useBean id="member" scope="request" class="com.petpet.Member.LoginBean" />
         <h1>帳戶資料修改</h1>
         <form>
             <div><br>

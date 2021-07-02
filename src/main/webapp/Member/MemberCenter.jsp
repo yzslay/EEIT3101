@@ -49,7 +49,7 @@
 
 <body background="image/Back.jpg">
     <div class="container outSide">
-        <jsp:useBean id="member" scope="request" class="com.lcpan.myTestLab.LoginBean" />
+        <jsp:useBean id="member" scope="request" class="com.petpet.Member.LoginBean" />
         <h1>帳戶資料修改</h1>
         <form  method="post" action="UpdateData">
             <div><br>
