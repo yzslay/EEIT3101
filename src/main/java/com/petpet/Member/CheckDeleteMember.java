@@ -18,8 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import com.petpet.bean.LoginBean;
-
 @WebServlet("/CheckDeleteMember")
 public class CheckDeleteMember extends HttpServlet {
 	private static final long serialVersionUID = 1L;
