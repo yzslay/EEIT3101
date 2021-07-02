@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.util.*, com.petpet.Member.LoginBean"%>
+	import="java.util.*, com.petpet.bean.LoginBean"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%!@SuppressWarnings("unchecked")%>
 <!DOCTYPE html>
