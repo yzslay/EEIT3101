@@ -13,7 +13,7 @@ public class LoginBeanDao {
 		this.session = session;
 	}
 	 
-	public LoginBean insert(LoginBean loginBean) {  //·s¼W·|­û¡A¿é¤JLoginBean¸ÌªºEmail & Password  ¦pªG¹ï¤èemail¤£¬OªÅ­È¡A¼g¤J¸ê®Æ®w
+	public LoginBean insert(LoginBean loginBean) {  //æ ¹æ“šEmailä¾†çœ‹æ˜¯å¦è³‡æ–™åº«å…§æœ‰è³‡æ–™
 		LoginBean resultBean = session.get(LoginBean.class, loginBean.getEmail()); 
 		
 		if(resultBean==null) {
@@ -23,7 +23,7 @@ public class LoginBeanDao {
 		return null;
 	}
 	
-	public LoginBean selectByEmail(String email) {  // email ¬d¸ß·|­û¿é¤JEmail¡A§Q¥ÎEmail¬d¸ß¸ê®Æ®w¸Ìªº·|­û¸ê®Æ
+	public LoginBean selectByEmail(String email) {  // emailæŸ¥çœ‹è³‡æ–™åº«å…§çš„æƒ…æ³
 		return session.get(LoginBean.class, email);
 	}
 	
@@ -32,7 +32,7 @@ public class LoginBeanDao {
 //		return query.list();
 //	}
 	
-	public LoginBean update(String email, LoginBean loginBean) {  // §ó·s¡A¥ı«eªº¦³¤»¶µ¦ı§Ú¤£ª¾¹D¬°¤°»òID»İ­n§ó·s
+	public LoginBean update(String email, LoginBean loginBean) {  // ç”¨Emailä¾†æ‰¾è³‡æ–™åº«ç›¸å°ç¡¬çš„è³‡æ–™, å·²è¼¸å…¥è³‡æ–™ç‚ºä¸»åšæ›´æ–°
 		LoginBean resultBean = session.get(LoginBean.class, email);
 		if(resultBean!=null) {
 			resultBean.setFirstname(loginBean.getFirstname());
@@ -45,7 +45,7 @@ public class LoginBeanDao {
 		return resultBean;
 	}
 	
-//	public boolean delete(int houseid) {  ¥ı¤£°µ§R°£
+//	public boolean delete(int houseid) {  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½
 //		HouseBean resultBean = session.get(HouseBean.class, houseid);
 //		
 //		if(resultBean!=null) {
@@ -56,4 +56,4 @@ public class LoginBeanDao {
 //		return false;
 	}
 
-}
+
