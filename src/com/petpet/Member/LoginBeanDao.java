@@ -13,7 +13,7 @@ public class LoginBeanDao {
 		this.session = session;
 	}
 	 
-	public LoginBean insert(LoginBean loginBean) {  //·s¼W·|­û¡A¿é¤JLoginBean¸ÌªºEmail & Password  ¦pªG¹ï¤èemail¤£¬OªÅ­È¡A¼g¤J¸ê®Æ®w
+	public LoginBean insert(LoginBean loginBean) {  //ï¿½sï¿½Wï¿½|ï¿½ï¿½ï¿½Aï¿½ï¿½JLoginBeanï¿½Ìªï¿½Email & Password  ï¿½pï¿½Gï¿½ï¿½ï¿½emailï¿½ï¿½ï¿½Oï¿½Å­È¡Aï¿½gï¿½Jï¿½ï¿½Æ®w
 		LoginBean resultBean = session.get(LoginBean.class, loginBean.getEmail()); 
 		
 		if(resultBean==null) {
@@ -23,7 +23,7 @@ public class LoginBeanDao {
 		return null;
 	}
 	
-	public LoginBean selectByEmail(String email) {  // email ¬d¸ß·|­û¿é¤JEmail¡A§Q¥ÎEmail¬d¸ß¸ê®Æ®w¸Ìªº·|­û¸ê®Æ
+	public LoginBean selectByEmail(String email) {  // email ï¿½dï¿½ß·|ï¿½ï¿½ï¿½ï¿½JEmailï¿½Aï¿½Qï¿½ï¿½Emailï¿½dï¿½ß¸ï¿½Æ®wï¿½Ìªï¿½ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½
 		return session.get(LoginBean.class, email);
 	}
 	
@@ -32,7 +32,7 @@ public class LoginBeanDao {
 //		return query.list();
 //	}
 	
-	public LoginBean update(String email, LoginBean loginBean) {  // §ó·s¡A¥ý«eªº¦³¤»¶µ¦ý§Ú¤£ª¾¹D¬°¤°»òID»Ý­n§ó·s
+	public LoginBean update(String email, LoginBean loginBean) {  // ï¿½ï¿½sï¿½Aï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¤ï¿½ï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IDï¿½Ý­nï¿½ï¿½s
 		LoginBean resultBean = session.get(LoginBean.class, email);
 		if(resultBean!=null) {
 			resultBean.setFirstname(loginBean.getFirstname());
@@ -45,7 +45,7 @@ public class LoginBeanDao {
 		return resultBean;
 	}
 	
-//	public boolean delete(int houseid) {  ¥ý¤£°µ§R°£
+//	public boolean delete(int houseid) {  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½
 //		HouseBean resultBean = session.get(HouseBean.class, houseid);
 //		
 //		if(resultBean!=null) {
@@ -54,6 +54,6 @@ public class LoginBeanDao {
 //		}
 //		
 //		return false;
-	}
+//	}
 
 }
