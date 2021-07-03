@@ -16,7 +16,7 @@ public class LoginBeanDao {
 	public LoginBean insert(LoginBean loginBean) {  //根據Email來看是否資料庫內有資料
 		LoginBean resultBean = session.get(LoginBean.class, loginBean.getEmail()); 
 		
-		if(resultBean==null) {
+		if(resultBean==null) {	
 			session.save(loginBean);
 			return loginBean;
 		}		
@@ -31,8 +31,7 @@ public class LoginBeanDao {
 //		Query<LoginBean> query = session.createQuery("from LoginBean", LoginBean.class);
 //		return query.list();
 //	}
-	
-	public LoginBean update(String email, LoginBean loginBean) {  // 用Email來找資料庫相對硬的資料, 已輸入資料為主做更新
+	public LoginBean update(String email, LoginBean loginBean) { 
 		LoginBean resultBean = session.get(LoginBean.class, email);
 		if(resultBean!=null) {
 			resultBean.setFirstname(loginBean.getFirstname());
