@@ -20,15 +20,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import com.petpet.mevent.dao.MarketingEventDAO;
+import com.petpet.mevent.dao.MarketingEventDAOJDBC;
 import com.petpet.bean.mevent.MarketingEventBean;
 
 @MultipartConfig
-@WebServlet("/mevent")
-public class MEventController extends HttpServlet {
+@WebServlet("/meventJDBC")
+public class MEventControllerJDBC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Connection conn;
-	private MarketingEventDAO medao;
+	private MarketingEventDAOJDBC medao;
 	private static final int EMPNO=1012;
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -81,7 +81,7 @@ public class MEventController extends HttpServlet {
 	
 	private void listMEvent(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
-        medao = new MarketingEventDAO(connect());
+        medao = new MarketingEventDAOJDBC(connect());
 		List<MarketingEventBean> mevents = medao.list();
         request.setAttribute("mevents", mevents);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/mevent/ListMEvent.jsp");
@@ -96,7 +96,7 @@ public class MEventController extends HttpServlet {
 	
 	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
-		medao = new MarketingEventDAO(connect());
+		medao = new MarketingEventDAOJDBC(connect());
         int eid = Integer.parseInt(request.getParameter("eid"));
         MarketingEventBean existingmevent = medao.get(eid);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/mevent/MEventForm.jsp");
@@ -113,7 +113,7 @@ public class MEventController extends HttpServlet {
 	
 	private void insertMEvent(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
-		medao = new MarketingEventDAO(connect());
+		medao = new MarketingEventDAOJDBC(connect());
         String title = medao.title();
         InputStream pic= request.getPart("pic").getInputStream(); 
 		Timestamp startdate = Timestamp.valueOf(request.getParameter("startdate")+" "+request.getParameter("starttime"));
@@ -139,7 +139,7 @@ public class MEventController extends HttpServlet {
 	
 	private void updateMEvent(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
-		medao = new MarketingEventDAO(connect());
+		medao = new MarketingEventDAOJDBC(connect());
 		int id=Integer.parseInt(request.getParameter("id"));
 		String title = request.getParameter("title");
 		InputStream pic;
@@ -174,7 +174,7 @@ public class MEventController extends HttpServlet {
 		int eid=Integer.parseInt(request.getParameter("eid"));
 		MarketingEventBean mevent = new MarketingEventBean();
 	    mevent.setMeventid(eid);
-	    medao = new MarketingEventDAO(connect());
+	    medao = new MarketingEventDAOJDBC(connect());
         medao.delete(mevent);
         response.sendRedirect("/EEIT3101/mevent");
     }
@@ -185,7 +185,7 @@ public class MEventController extends HttpServlet {
 		System.out.println(name);
 		String sql="SELECT * FROM MarketingEvent WHERE meventname LIKE '%"+name+"%'";
 		System.out.println(sql);
-		medao = new MarketingEventDAO(connect());
+		medao = new MarketingEventDAOJDBC(connect());
 		List<MarketingEventBean> mevents =medao.query(sql);
 		request.setAttribute("mevents", mevents);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/mevent/ListMEvent.jsp");

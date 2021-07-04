@@ -9,6 +9,11 @@
 	<property name="hibernate.current_session_context_class">thread</property>
 	<property name="show_sql">true</property>
 	<property name="hibernate.format_sql">true</property>
+<<<<<<< HEAD
 	<mapping class="com.petpet.Member.LoginBean"/>
+=======
+	
+	<mapping class="com.petpet.bean.mevent.MarketingEventBean"/>
+>>>>>>> branch 'Hibernate202006' of https://github.com/yzslay/EEIT3101.git
     </session-factory>
 </hibernate-configuration>
