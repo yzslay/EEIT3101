@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 
-@WebServlet("/CheckMemberData")
+@WebServlet("/NoUseCheckMemberData")
 public class NoUseCheckMember extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String QUERY = "SELECT * FROM Member WHERE email = ? AND password = ?";
