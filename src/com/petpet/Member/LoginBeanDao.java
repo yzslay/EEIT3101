@@ -26,10 +26,9 @@ public class LoginBeanDao {
 	}
 	
 	
-
 	public LoginBean selectByEmail(String email) {
 		String hql = "from LoginBean where email=:email";
-		Query<LoginBean> query = session.createNamedQuery(hql, LoginBean.class);
+		Query<LoginBean> query = session.createQuery(hql, LoginBean.class);
 		query.setParameter("email", email);
 		return query.uniqueResult();
 	}
