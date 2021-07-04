@@ -1,31 +1,27 @@
 package com.petpet.Member;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
+
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.petpet.util.HibernateUtil;
 
 
 @WebServlet("/CheckMemberData")
 public class CheckMemberData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String QUERY = "SELECT * FROM Member WHERE email = ? AND password = ?";
        
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.getCurrentSession();
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
@@ -34,53 +30,36 @@ public class CheckMemberData extends HttpServlet {
 		String password = request.getParameter("password");
 		boolean check= false;
 		
-		Connection conn = null;
 		try {
-			Context context = new InitialContext();
-			DataSource ds = (DataSource) context.lookup("java:/comp/env/jdbc/petpet");
-			conn = ds.getConnection();
+//			session.beginTransaction();
 
+			LoginBeanService lBean = new LoginBeanService(session);
+			LoginBean result = lBean.selectByEmail(email);
 			
-			PreparedStatement stmtp = conn.prepareStatement(QUERY);
-			stmtp.setString(1, email);
-			stmtp.setString(2, password);
-
-			ResultSet rs = stmtp.executeQuery();
-			
-			LoginBean member = null;
-			while(rs.next()) {
-				member = new LoginBean();
-				member.setEmail(rs.getString("email"));
-				member.setPassword(rs.getString("password"));
-				
-				if((member.getEmail().equals(email))&&(member.getPassword().equals(password))) {
-					check = true;
-					request.setAttribute("member", member);
-				}
-			}
-			
-			stmtp.close();
-			
-			if(check==true) {
-				request.getRequestDispatcher("/MyTestLab/LoginTrue.jsp").forward(request, response);
+			if(result == null) {
+				check = false;
 			}else {
-				request.getRequestDispatcher("/MyTestLab/LoginFail.jsp").forward(request, response);
+				if(result.getPassword().equals(password)) {
+					check=true;
+					request.setAttribute("member", result);
+				}
 			}
+
+			System.out.println("TESTESTEST");
+			if(check==true) {
+				request.getRequestDispatcher("/Member/LoginTrue.jsp").forward(request, response);
+			}else {
+				request.getRequestDispatcher("/Member/LoginFail.jsp").forward(request, response);
+			}
+			System.out.println(result);
 			
 
-
-		} catch (SQLException e) {
+		}catch(Exception e) {
+			session.getTransaction().rollback();
 			e.printStackTrace();
-		} catch (NamingException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null)
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+			
 		}
+//		HibernateUtil.closeSessionFactory();
 	}
 
 	
