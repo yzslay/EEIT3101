@@ -1,4 +1,4 @@
-package com.petpet.mevent;
+package com.petpet.util;
 
 import java.io.*;
 import javax.servlet.Filter;
@@ -9,7 +9,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.*;
 
-@WebFilter(urlPatterns="/mevent",
+@WebFilter(urlPatterns="/*",
 		   initParams= @WebInitParam(name="encoding",value="UTF-8"))
 public class EncodingFilter implements Filter {
 	String encoding = null;
