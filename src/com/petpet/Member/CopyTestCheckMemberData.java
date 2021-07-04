@@ -14,7 +14,7 @@ import org.hibernate.SessionFactory;
 import com.petpet.util.HibernateUtil;
 
 
-@WebServlet("/CheckMemberData")
+@WebServlet("/CopyTestCheckMemberData")
 public class CopyTestCheckMemberData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
