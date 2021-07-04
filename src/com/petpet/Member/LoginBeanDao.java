@@ -24,6 +24,7 @@ public class LoginBeanDao {
 		return null;
 	}
 	
+	
 
 	public LoginBean selectByEmail(String email) {  
 		return session.get(LoginBean.class, email);
