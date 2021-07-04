@@ -23,9 +23,9 @@ public class LoginBeanService implements ILoginBeanService {
 	}
 
 	@Override
-	public LoginBean update(String email, LoginBean loginBean) {
+	public LoginBean update(int memberid, LoginBean loginBean) {
 		
-		return lbeanDao.update(email, loginBean);
+		return lbeanDao.update(memberid, loginBean);
 	}
 
 }
