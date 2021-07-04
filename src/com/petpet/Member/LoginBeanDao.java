@@ -1,9 +1,9 @@
 package com.petpet.Member;
 
-import java.util.List;
+
 
 import org.hibernate.Session;
-import org.hibernate.query.Query;
+
 
 public class LoginBeanDao {
 
@@ -13,7 +13,8 @@ public class LoginBeanDao {
 		this.session = session;
 	}
 	 
-	public LoginBean insert(LoginBean loginBean) {  //根據Email來看是否資料庫內有資料
+
+	public LoginBean insert(LoginBean loginBean) {  
 		LoginBean resultBean = session.get(LoginBean.class, loginBean.getEmail()); 
 		
 		if(resultBean==null) {	
@@ -23,15 +24,13 @@ public class LoginBeanDao {
 		return null;
 	}
 	
-	public LoginBean selectByEmail(String email) {  // email查看資料庫內的情況
+
+	public LoginBean selectByEmail(String email) {  
 		return session.get(LoginBean.class, email);
 	}
 	
-//	public List<LoginBean> selectAll() {
-//		Query<LoginBean> query = session.createQuery("from LoginBean", LoginBean.class);
-//		return query.list();
-//	}
-	public LoginBean update(String email, LoginBean loginBean) { 
+
+	public LoginBean update(String email, LoginBean loginBean) {  
 		LoginBean resultBean = session.get(LoginBean.class, email);
 		if(resultBean!=null) {
 			resultBean.setFirstname(loginBean.getFirstname());
@@ -43,7 +42,7 @@ public class LoginBeanDao {
 		
 		return resultBean;
 	}
-	
+	}
 //	public boolean delete(int houseid) {  �������R��
 //		HouseBean resultBean = session.get(HouseBean.class, houseid);
 //		
@@ -53,6 +52,6 @@ public class LoginBeanDao {
 //		}
 //		
 //		return false;
-	}
+//	}
 
 
