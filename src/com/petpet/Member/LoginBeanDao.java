@@ -3,6 +3,7 @@ package com.petpet.Member;
 
 
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 
 public class LoginBeanDao {
@@ -26,8 +27,11 @@ public class LoginBeanDao {
 	
 	
 
-	public LoginBean selectByEmail(String email) {  
-		return session.get(LoginBean.class, email);
+	public LoginBean selectByEmail(String email) {
+		String hql = "from LoginBean where email=:email";
+		Query<LoginBean> query = session.createNamedQuery(hql, LoginBean.class);
+		query.setParameter("email", email);
+		return query.uniqueResult();
 	}
 	
 
