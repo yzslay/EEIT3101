@@ -31,7 +31,7 @@ public class CopyTestCheckMemberData extends HttpServlet {
 		boolean check= false;
 		
 		try {
-			session.beginTransaction();
+//			session.beginTransaction();
 
 			LoginBeanService lBean = new LoginBeanService(session);
 			LoginBean result = lBean.selectByEmail(email);
@@ -45,13 +45,13 @@ public class CopyTestCheckMemberData extends HttpServlet {
 				}
 			}
 
-			
+			System.out.println("TESTESTEST");
 			if(check==true) {
-				request.getRequestDispatcher("/MyTestLab/LoginTrue.jsp").forward(request, response);
+				request.getRequestDispatcher("/Member/LoginTrue.jsp").forward(request, response);
 			}else {
-				request.getRequestDispatcher("/MyTestLab/LoginFail.jsp").forward(request, response);
+				request.getRequestDispatcher("/Member/LoginFail.jsp").forward(request, response);
 			}
-			
+			System.out.println(result);
 			
 
 		}catch(Exception e) {
@@ -59,7 +59,7 @@ public class CopyTestCheckMemberData extends HttpServlet {
 			e.printStackTrace();
 			
 		}
-		HibernateUtil.closeSessionFactory();
+//		HibernateUtil.closeSessionFactory();
 	}
 
 	

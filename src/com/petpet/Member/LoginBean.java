@@ -14,7 +14,7 @@ public class LoginBean {
 	
 	@Id @Column(name = "MEMBERID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String memberid;
+	private int memberid;
 
 	@Column(name = "EMAIL")
 	private String email;
@@ -41,11 +41,11 @@ public class LoginBean {
 
 	}
 
-	public String getMemberid() {
+	public int getMemberid() {
 		return memberid;
 	}
 
-	public void setMemberid(String memberid) {
+	public void setMemberid(int memberid) {
 		this.memberid = memberid;
 	}
 
