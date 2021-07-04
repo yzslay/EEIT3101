@@ -52,7 +52,11 @@ public class CheckMemberData extends HttpServlet {
 				member = new LoginBean();
 				member.setEmail(rs.getString("email"));
 				member.setPassword(rs.getString("password"));
-				
+				member.setFirstname(rs.getString("firstname"));
+				member.setGender(rs.getString("gender"));
+				member.setBirthday(rs.getString("birthday"));
+				member.setMobile(rs.getString("mobile"));
+
 				if((member.getEmail().equals(email))&&(member.getPassword().equals(password))) {
 					check = true;
 					request.setAttribute("member", member);
@@ -62,7 +66,7 @@ public class CheckMemberData extends HttpServlet {
 			stmtp.close();
 			
 			if(check==true) {
-				request.getRequestDispatcher("/MyTestLab/LoginTrue.jsp").forward(request, response);
+				request.getRequestDispatcher("/Member/ShowLogin.jsp").forward(request, response);
 			}else {
 				request.getRequestDispatcher("/MyTestLab/LoginFail.jsp").forward(request, response);
 			}
