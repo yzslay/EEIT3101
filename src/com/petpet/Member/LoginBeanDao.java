@@ -14,9 +14,12 @@ public class LoginBeanDao {
 	 
 
 	public LoginBean insert(LoginBean loginBean) {  
-		LoginBean resultBean = session.get(LoginBean.class, loginBean.getEmail()); 
+		String hql = "from LoginBean where email=:email";
+		Query<LoginBean> query = session.createQuery(hql, LoginBean.class);
+		query.setParameter("email", loginBean.getEmail());
+		LoginBean loginbeanfomwsql = query.uniqueResult();
 		
-		if(resultBean==null) {	
+		if(loginbeanfomwsql==null) {	
 			session.save(loginBean);
 			return loginBean;
 		}		
@@ -28,12 +31,12 @@ public class LoginBeanDao {
 		String hql = "from LoginBean where email=:email";
 		Query<LoginBean> query = session.createQuery(hql, LoginBean.class);
 		query.setParameter("email", email);
-		return query.uniqueResult();
+		return query.uniqueResult();  
 	}
 	
 
-	public LoginBean update(String email, LoginBean loginBean) {  
-		LoginBean resultBean = session.get(LoginBean.class, email);
+	public LoginBean update(int memberid, LoginBean loginBean) {  
+		LoginBean resultBean = session.get(LoginBean.class, memberid);
 		if(resultBean!=null) {
 			resultBean.setFirstname(loginBean.getFirstname());
 			resultBean.setLastname(loginBean.getLastname());
