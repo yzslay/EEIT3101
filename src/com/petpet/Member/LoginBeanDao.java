@@ -35,16 +35,20 @@ public class LoginBeanDao {
 	
 
 	public LoginBean update(String email, LoginBean loginBean) {  
-		LoginBean resultBean = session.get(LoginBean.class, email);
-		if(resultBean!=null) {
-			resultBean.setFirstname(loginBean.getFirstname());
-			resultBean.setLastname(loginBean.getLastname());
-			resultBean.setGender(loginBean.getGender());
-			resultBean.setBirthday(loginBean.getBirthday());
-			resultBean.setMobile(loginBean.getMobile());
+		String hql = "from LoginBean where email=:email";
+		Query<LoginBean> query = session.createQuery(hql, LoginBean.class);
+		query.setParameter("email", email);
+		LoginBean loginbeanfomwsql = query.uniqueResult();
+
+
+		if(loginbeanfomwsql!=null) {
+			loginbeanfomwsql.setFirstname(loginBean.getFirstname());
+			loginbeanfomwsql.setLastname(loginBean.getLastname());
+			loginbeanfomwsql.setGender(loginBean.getGender());
+			loginbeanfomwsql.setBirthday(loginBean.getBirthday());
+			loginbeanfomwsql.setMobile(loginBean.getMobile());
 		}
-		
-		return resultBean;
+		return loginbeanfomwsql;
 	}
 	}
 //	public boolean delete(int houseid) {  �������R��
