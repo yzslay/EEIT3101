@@ -1,7 +1,5 @@
 package com.petpet.Member;
 
-
-
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
