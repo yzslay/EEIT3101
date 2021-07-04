@@ -62,7 +62,7 @@ public class GetSignData extends HttpServlet {
 			request.setAttribute("member", member);
 			stmtp.close();
 			
-			request.getRequestDispatcher("/MyTestLab/MemberCenter.jsp").forward(request, response);
+			request.getRequestDispatcher("/Member/MemberCenter.jsp").forward(request, response);
 
 
 		} catch (SQLException e) {

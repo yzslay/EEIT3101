@@ -70,7 +70,7 @@ public class UpdateData extends HttpServlet {
 			request.setAttribute("member", member);
 			stmtp.close();
 			
-			request.getRequestDispatcher("/MyTestLab/MemberShow.jsp").forward(request, response);
+			request.getRequestDispatcher("/Member/MemberShow.jsp").forward(request, response);
 
 
 		} catch (SQLException e) {
