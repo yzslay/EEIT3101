@@ -16,9 +16,12 @@ public class LoginBeanDao {
 	 
 
 	public LoginBean insert(LoginBean loginBean) {  
-		LoginBean resultBean = session.get(LoginBean.class, loginBean.getEmail()); 
+		String hql = "from LoginBean where email=:email";
+		Query<LoginBean> query = session.createQuery(hql, LoginBean.class);
+		query.setParameter("email", loginBean.getEmail());
+		LoginBean loginbeanfomwsql = query.uniqueResult();
 		
-		if(resultBean==null) {	
+		if(loginbeanfomwsql==null) {	
 			session.save(loginBean);
 			return loginBean;
 		}		
