@@ -23,7 +23,7 @@ public class LoginBeanService implements ILoginBeanService {
 	}
 
 	@Override
-	public LoginBean update(int memberid, LoginBean loginBean) {
+	public LoginBean update(String memberid, LoginBean loginBean) {
 		
 		return lbeanDao.update(memberid, loginBean);
 	}
@@ -31,6 +31,12 @@ public class LoginBeanService implements ILoginBeanService {
 	@Override
 	public LoginBean selectById(String memberid) {
 		return lbeanDao.selectById(memberid);
+	}
+	
+	@Override
+	public LoginBean update2(String memberid, String Firstname, String Lastname, String Gender, String Birthday, String Mobile) {
+		
+		return lbeanDao.update2(memberid, Firstname, Lastname, Gender, Birthday, Mobile);
 	}
 	
 	

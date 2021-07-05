@@ -16,16 +16,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.petpet.util.HibernateUtil;
+
 @WebServlet("/UpdateData")
 public class UpdateData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String QUERY = "SELECT * FROM Member WHERE memberid = ?";
-	private static final String UPDATE = "UPDATE Member SET firstname = ?, lastname = ?, "
-			+ "gender = ?, birthday = ?,mobile =? WHERE memberid = ?";
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.getCurrentSession();
+		
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		
 		String memberid = request.getParameter("memberid");
 		String firstname = request.getParameter("firstname");
@@ -34,56 +40,18 @@ public class UpdateData extends HttpServlet {
 		String birthday = request.getParameter("birthday");
 		String mobile = request.getParameter("mobile");
 		
-		Connection conn = null;
+
 		try {
-			Context context = new InitialContext();
-			DataSource ds = (DataSource) context.lookup("java:/comp/env/jdbc/petpet");
-			conn = ds.getConnection();
-
-			PreparedStatement stmt = conn.prepareStatement(UPDATE);
-			stmt.setString(1, firstname);
-			stmt.setString(2, lastname);
-			stmt.setString(3, gender);
-			stmt.setString(4, birthday);
-			stmt.setString(5, mobile);
-			stmt.setString(6, memberid);
-			stmt.executeUpdate();
-
-			stmt.close();
 			
+			LoginBeanService lBean = new LoginBeanService(session);
+			LoginBean result = lBean.update2(memberid, firstname, lastname, gender, birthday, mobile);
 			
-			PreparedStatement stmtp = conn.prepareStatement(QUERY);
-			stmtp.setString(1, memberid);
+			request.setAttribute("member", result);
+			request.getRequestDispatcher("/Member/ShowLogin.jsp").forward(request, response);
 
-			ResultSet rs = stmtp.executeQuery();
-			
-			LoginBean member = new LoginBean();
-			if (rs.next()) {
-				member.setMemberid(rs.getString("memberid"));
-				member.setFirstname(rs.getString("firstname"));
-				member.setLastname(rs.getString("lastname"));
-				member.setGender(rs.getString("gender"));
-				member.setBirthday(rs.getString("Birthday"));
-				member.setMobile(rs.getString("mobile"));
-			}
-			
-			request.setAttribute("member", member);
-			stmtp.close();
-			
-			request.getRequestDispatcher("/Member/MemberShow.jsp").forward(request, response);
-
-
-		} catch (SQLException e) {
+		}catch(Exception e) {
+			session.getTransaction().rollback();
 			e.printStackTrace();
-		} catch (NamingException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null)
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 		}
 		
 	}

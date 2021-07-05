@@ -68,7 +68,7 @@
     <div id="second" class="container outSide hide">
         <jsp:useBean id="member" scope="request" class="com.petpet.Member.LoginBean" />
         <h1>帳戶資料修改</h1>
-        <form>
+        <form method="post" action="UpdateData">
             <div><br>
                 <h4 class="MemberNum">您的會員編號：
                     <input class="MemberNum MemberNumInput" readonly type="text" id="memberid" name="memberid" 
