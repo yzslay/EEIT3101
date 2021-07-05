@@ -59,7 +59,7 @@ public class LoginBeanDao {
 			resultBean.setBirthday(Birthday);
 			resultBean.setMobile(Mobile);
 		}
-		return null;
+		return resultBean;
 	}
 	
 
