@@ -47,7 +47,7 @@ public class CheckMemberData extends HttpServlet {
 
 			System.out.println("TESTESTEST");
 			if(check==true) {
-				request.getRequestDispatcher("/Member/LoginTrue.jsp").forward(request, response);
+				request.getRequestDispatcher("/Member/ShowLogin.jsp").forward(request, response);
 			}else {
 				request.getRequestDispatcher("/Member/LoginFail.jsp").forward(request, response);
 			}
