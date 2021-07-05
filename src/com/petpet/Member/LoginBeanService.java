@@ -28,4 +28,11 @@ public class LoginBeanService implements ILoginBeanService {
 		return lbeanDao.update(memberid, loginBean);
 	}
 
+	@Override
+	public LoginBean selectById(int memberid) {
+		return lbeanDao.selectById(memberid);
+	}
+	
+	
+
 }
