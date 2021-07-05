@@ -112,6 +112,10 @@ System.out.println(basePath);%>
                     style="width:200px;height:40px;">修改</button>
             </div>
         </form>
+        	<div class="d-grid gap-2 col-6 mx-auto container" align="center"><a href="${basePath}Logout">
+                <button type="button" class="btn btn-success" id="signOut"
+                    style="width:200px;height:40px;">登出</button></a>
+            </div>
         <div class="last"></div>
     <!-- </div> -->
     <!-- <script>

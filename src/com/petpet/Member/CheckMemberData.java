@@ -44,6 +44,7 @@ public class CheckMemberData extends HttpServlet {
 			}else {
 				if(result.getPassword().equals(password)) {
 					check=true;
+					request.getSession().setAttribute("login", result.getMemberid());
 					request.setAttribute("member", result);
 				}
 			}
