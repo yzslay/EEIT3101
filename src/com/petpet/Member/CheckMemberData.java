@@ -36,8 +36,19 @@ public class CheckMemberData extends HttpServlet {
 			LoginBeanService lBean = new LoginBeanService(session);
 			LoginBean result = lBean.selectByEmail(email);
 			
+
 			if(result == null) {
-				check = false;
+				check = false;	
+			
+				if((result.getEmail().equals(email))&&(result.getPassword().equals(password))) {
+					check = true;
+					request.setAttribute("member", result);
+				}
+			}
+			
+			if(check==true) {
+				request.getRequestDispatcher("/Member/ShowLogin.jsp").forward(request, response);
+
 			}else {
 				if(result.getPassword().equals(password)) {
 					check=true;
