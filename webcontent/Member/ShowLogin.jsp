@@ -77,11 +77,11 @@
             </div>
             <div class="input-group flex-nowrap input-group-lg div">
                 <span class="input-group-text">帳號</span>
-                <input id="birthday" type="date" name="email" disabled value="${member.email}">
+                <input id="email" type="text" name="email" disabled value="${member.email}">
             </div>
             <div class="input-group flex-nowrap input-group-lg div">
                 <span class="input-group-text">密碼</span>
-                <input id="birthday" type="date" name="password" disabled value="${member.password}">
+                <input id="password" type="password" name="password" disabled value="${member.password}">
             </div>              
        	    <div class="input-group input-group-lg div">
                 <span class="input-group-text ">姓名</span>
