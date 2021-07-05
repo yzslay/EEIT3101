@@ -15,13 +15,6 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
     <style>
-        .hide {
-            visibility: hidden;
-        }
-
-        .show {
-            visibility: visible;
-        }
 
         .loadText {
             font-size: 30px;
@@ -54,9 +47,6 @@
             background-color: transparent;
         }
 
-        .back {
-            background-size: 0 0;
-        }
         .last{
                 margin-bottom: 670px;
             }
@@ -64,7 +54,6 @@
 </head>
 
 <body id="third" class="back" background="image/Back.jpg">
-    <div id="first" class="container show loadText" align="center">準備載入頁面......</div>
     <div id="second" class="container outSide hide">
         <jsp:useBean id="member" scope="request" class="com.petpet.Member.LoginBean" />
         <h1>帳戶資料修改</h1>
@@ -119,7 +108,7 @@
             console.log(document.getElementById("genderInput").value);
         }
 
-        function autoShow() {
+        <!--function autoShow() {
             document.getElementById( "second" ).classList.remove("hide");
             document.getElementById( "second" ).classList.add("show");
             document.getElementById( "first" ).classList.remove("show");
@@ -131,7 +120,7 @@
         var timer = autoRun();
         function autoRun() {
             setTimeout("autoShow()", 3000);
-        }
+        }-->
 
 
 
