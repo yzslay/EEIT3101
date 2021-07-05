@@ -47,7 +47,14 @@ public class LoginBeanDao {
 		
 		return resultBean;
 	}
-	}
+	
+
+public LoginBean selectById(int memberid) {
+	LoginBean resultBean = session.get(LoginBean.class, memberid);
+	return resultBean;
+}
+
+}
 //	public boolean delete(int houseid) {  �������R��
 //		HouseBean resultBean = session.get(HouseBean.class, houseid);
 //		
