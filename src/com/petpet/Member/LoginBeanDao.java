@@ -49,7 +49,7 @@ public class LoginBeanDao {
 	}
 	
 
-public LoginBean selectById(int memberid) {
+public LoginBean selectById(String memberid) {
 	LoginBean resultBean = session.get(LoginBean.class, memberid);
 	return resultBean;
 }

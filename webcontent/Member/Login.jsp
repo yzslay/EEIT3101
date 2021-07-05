@@ -54,7 +54,7 @@
 
 <body background="../image/Back.jpg">
 <h1 align="center"><font size="10">會員專區</font></h1>
-<c:set var="checkCount" value="${fail}" id="check"/>
+<c:set var="checkCount" value="${fail}"/>
 
     <div class="container H" style="box-shadow:3px 3px 5px 6px #cccccc;">
         <div class="container outSide">
@@ -114,10 +114,9 @@
 
                 <script>
                     var signAccount = false, signPassword = false, signCheckPassword = false;
-					<!--const checkPoint = document.getElementById('check').value;
 
                 	function autoshow(){
-							if(checkPoint == true){
+							if(checkCount == true){
 								alert("帳號或密碼錯誤");
 								}else{
 									}
@@ -126,7 +125,7 @@
                     
                     function autoCheck() {
                         setTimeout("autoShow()", 1000);
-                    }-->
+                    }
 
 					
                     const input1 = document.getElementById('signInput');

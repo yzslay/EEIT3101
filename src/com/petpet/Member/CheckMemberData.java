@@ -52,7 +52,7 @@ public class CheckMemberData extends HttpServlet {
 				request.getRequestDispatcher("/Member/ShowLogin.jsp").forward(request, response);
 			}else {
 				request.setAttribute("fail",fail);
-				request.getRequestDispatcher("/Member/Login.html").forward(request, response);
+				request.getRequestDispatcher("/Member/Login.jsp").forward(request, response);
 			}
 			System.out.println(result);
 			

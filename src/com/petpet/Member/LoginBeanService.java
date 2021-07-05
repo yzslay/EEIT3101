@@ -29,7 +29,7 @@ public class LoginBeanService implements ILoginBeanService {
 	}
 
 	@Override
-	public LoginBean selectById(int memberid) {
+	public LoginBean selectById(String memberid) {
 		return lbeanDao.selectById(memberid);
 	}
 	

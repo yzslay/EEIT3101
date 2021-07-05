@@ -26,7 +26,7 @@ public class GetMemberLogin extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		int memberid = request.getIntHeader("memberid");
+		String memberid = request.getParameter("memberid");
 		try {
 			
 			LoginBeanService lBean = new LoginBeanService(session);
