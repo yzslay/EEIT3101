@@ -1,9 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% 
+String path = request.getContextPath(); 
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/"; 
+System.out.println(basePath);%> 
+
 <!DOCTYPE html>
 <html>
 <head>
+	<base href="<%=basePath%>">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,7 +75,7 @@
             </nav>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="login">
-                    <form method="post" action="../CheckMemberData">
+                    <form method="post" action="${basePath}CheckMemberData">
                         <div class="mb-3 inSide">
                             <label for="logInput" class="form-label">會員帳號</label>
                             <input type="email" class="form-control" id="logInput" placeholder="請輸入Email" name="email">
@@ -88,7 +94,7 @@
                 </div>
 
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="signIn">
-                    <form method="post" action="../UpdateData">
+                    <form method="post" action="${basePath}UpdateData">
                         <div class="mb-3 inSide">
                             <label for="signInput" class="form-label">會員帳號</label>
                             <input type="email" class="form-control" id="signInput" placeholder="請輸入Email" name="email" autocomplete="off">

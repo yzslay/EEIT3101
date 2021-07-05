@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% 
+String path = request.getContextPath(); 
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/"; 
+System.out.println(basePath);%> 
 <!DOCTYPE html>
 <html>
 <head>
+	<base href="<%=basePath%>">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,7 +73,7 @@
     <div id="second" class="container outSide hide">
         <jsp:useBean id="member" scope="request" class="com.petpet.Member.LoginBean" />
         <h1>帳戶資料修改</h1>
-        <form method="post" action="UpdateData">
+        <form method="post" action="${basePath}UpdateData">
             <div><br>
                 <h4 class="MemberNum">您的會員編號：
                     <input class="MemberNum MemberNumInput" readonly type="text" id="memberid" name="memberid" 
@@ -119,19 +124,19 @@
             console.log(document.getElementById("genderInput").value);
         }
 
-        function autoShow() {
-            document.getElementById( "second" ).classList.remove("hide");
-            document.getElementById( "second" ).classList.add("show");
-            document.getElementById( "first" ).classList.remove("show");
-            document.getElementById( "first" ).classList.add("hide");
-            document.getElementById( "third" ).classList.remove("back");
-            alert("資料修改完成！");
-        }
+       function autoShow() {
+          document.getElementById( "second" ).classList.remove("hide");
+           document.getElementById( "second" ).classList.add("show");
+          document.getElementById( "first" ).classList.remove("show");
+          document.getElementById( "first" ).classList.add("hide");
+          document.getElementById( "third" ).classList.remove("back");
+ //           alert("資料修改完成！");
+     }
 
-        var timer = autoRun();
-        function autoRun() {
-            setTimeout("autoShow()", 3000);
-        }
+      var timer = autoRun();
+       function autoRun() {
+           setTimeout("autoShow()", 3000);
+       }
 
 
 

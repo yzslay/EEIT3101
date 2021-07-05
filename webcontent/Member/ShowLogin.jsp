@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% 
+String path = request.getContextPath(); 
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/"; 
+System.out.println(basePath);%> 
 <!DOCTYPE html>
 <html>
 <head>
+	<base href="<%=basePath%>">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,7 +73,7 @@
     <div id="second" class="container outSide hide"> -->
         <jsp:useBean id="member" scope="request" class="com.petpet.Member.LoginBean" />
         <h1>會員資料</h1>
-        <form method="post" action="GetMemberLogin">
+        <form method="post" action="${basePath}GetMemberLogin">
         	<div><br>
                 <h4 class="MemberNum">
                     <input class="MemberNum MemberNumInput" readonly type="Hidden" id="memberid" name="memberid" 
