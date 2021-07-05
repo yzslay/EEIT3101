@@ -95,7 +95,7 @@ System.out.println(basePath);%>
                 </div>
 
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="signIn">
-                    <form method="post" action="${basePath}UpdateData">
+                    <form method="post" action="${basePath}registermember">
                         <div class="mb-3 inSide">
                             <label for="signInput" class="form-label">會員帳號</label>
                             <input type="email" class="form-control" id="signInput" placeholder="請輸入Email" name="email" autocomplete="off">
