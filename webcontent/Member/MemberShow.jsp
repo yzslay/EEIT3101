@@ -20,13 +20,6 @@ System.out.println(basePath);%>
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
     <style>
-        .hide {
-            visibility: hidden;
-        }
-
-        .show {
-            visibility: visible;
-        }
 
         .loadText {
             font-size: 30px;
@@ -59,9 +52,6 @@ System.out.println(basePath);%>
             background-color: transparent;
         }
 
-        .back {
-            background-size: 0 0;
-        }
         .last{
                 margin-bottom: 670px;
             }
@@ -69,7 +59,6 @@ System.out.println(basePath);%>
 </head>
 
 <body id="third" class="back" background="image/Back.jpg">
-    <div id="first" class="container show loadText" align="center">準備載入頁面......</div>
     <div id="second" class="container outSide hide">
         <jsp:useBean id="member" scope="request" class="com.petpet.Member.LoginBean" />
         <h1>帳戶資料修改</h1>
@@ -123,22 +112,6 @@ System.out.println(basePath);%>
             document.getElementById("genderInput").value = x.options[x.selectedIndex].text;
             console.log(document.getElementById("genderInput").value);
         }
-
-       function autoShow() {
-          document.getElementById( "second" ).classList.remove("hide");
-           document.getElementById( "second" ).classList.add("show");
-          document.getElementById( "first" ).classList.remove("show");
-          document.getElementById( "first" ).classList.add("hide");
-          document.getElementById( "third" ).classList.remove("back");
- //           alert("資料修改完成！");
-     }
-
-      var timer = autoRun();
-       function autoRun() {
-           setTimeout("autoShow()", 3000);
-       }
-
-
 
     </script>
 

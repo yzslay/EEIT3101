@@ -60,8 +60,6 @@ System.out.println(basePath);%>
 
 <body background="../image/Back.jpg">
 <h1 align="center"><font size="10">會員專區</font></h1>
-<c:set var="checkCount" value="${fail}"/>
-
     <div class="container H" style="box-shadow:3px 3px 5px 6px #cccccc;">
         <div class="container outSide">
             <nav>
@@ -87,6 +85,9 @@ System.out.println(basePath);%>
                                 placeholder="請輸入8~20字元的英數字，不可有特殊符號" name="password">
                             <span id="logInputPwdShowBox" class="tip"></span>
                         </div>
+                        <font color="red">
+                        <c:if test="${message!=null}"><c:out value="${message}"></c:out></c:if>
+						</font>
                         <div class="d-grid gap-2 col-6 mx-auto sub">
                             <button type="submit" class="btn btn-success" id="logOutput">送出</button>
                         </div>
@@ -120,19 +121,6 @@ System.out.println(basePath);%>
 
                 <script>
                     var signAccount = false, signPassword = false, signCheckPassword = false;
-
-                	function autoshow(){
-							if(checkCount == true){
-								alert("帳號或密碼錯誤");
-								}else{
-									}
-                    	}
-                    var check = autoCheck();
-                    
-                    function autoCheck() {
-                        setTimeout("autoShow()", 1000);
-                    }
-
 					
                     const input1 = document.getElementById('signInput');
                     const input2 = document.getElementById('signInputPwd');
