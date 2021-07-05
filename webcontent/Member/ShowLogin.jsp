@@ -68,7 +68,7 @@
     <div id="second" class="container outSide hide"> -->
         <jsp:useBean id="member" scope="request" class="com.petpet.Member.LoginBean" />
         <h1>會員資料</h1>
-        <form method="post" action="">
+        <form method="post" action="../GetMemberLogin">
         	<div><br>
                 <h4 class="MemberNum">
                     <input class="MemberNum MemberNumInput" readonly type="Hidden" id="memberid" name="memberid" 

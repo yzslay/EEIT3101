@@ -29,6 +29,7 @@ public class CheckMemberData extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		boolean check= false;
+		boolean fail= false;
 		
 		try {
 //			session.beginTransaction();
@@ -38,6 +39,7 @@ public class CheckMemberData extends HttpServlet {
 			
 			if(result == null) {
 				check = false;
+				fail = true;
 			}else {
 				if(result.getPassword().equals(password)) {
 					check=true;
@@ -49,7 +51,8 @@ public class CheckMemberData extends HttpServlet {
 			if(check==true) {
 				request.getRequestDispatcher("/Member/ShowLogin.jsp").forward(request, response);
 			}else {
-				request.getRequestDispatcher("/Member/LoginFail.jsp").forward(request, response);
+				request.setAttribute("fail",fail);
+				request.getRequestDispatcher("/Member/Login.html").forward(request, response);
 			}
 			System.out.println(result);
 			
