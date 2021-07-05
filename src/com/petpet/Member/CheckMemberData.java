@@ -30,6 +30,7 @@ public class CheckMemberData extends HttpServlet {
 		String password = request.getParameter("password");
 		boolean check= false;
 		boolean fail= false;
+		String info = "";
 		
 		try {
 //			session.beginTransaction();
@@ -51,10 +52,9 @@ public class CheckMemberData extends HttpServlet {
 				request.getRequestDispatcher("/Member/ShowLogin.jsp").forward(request, response);
 			}else {
 				request.setAttribute("fail",fail);
+				request.setAttribute("message", "帳號或密碼錯誤，請重新登入<br>");
 				request.getRequestDispatcher("/Member/Login.jsp").forward(request, response);
-			}
-			System.out.println(result);
-			
+			}	
 
 		}catch(Exception e) {
 			session.getTransaction().rollback();
