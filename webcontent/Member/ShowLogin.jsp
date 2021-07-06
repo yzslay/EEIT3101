@@ -36,7 +36,6 @@ System.out.println(basePath);%>
         .div {
             margin: 60px auto;
             width: 600px;
-            right: 60px;
         }
 
         h1 {
@@ -64,6 +63,9 @@ System.out.println(basePath);%>
         }
         .last{
                 margin-bottom: 670px;
+            }
+        .center{
+                margin: auto;
             }
     </style>
 </head>
@@ -108,45 +110,15 @@ System.out.println(basePath);%>
                 <input type="text" class="form-control" placeholder="手機號碼" id="mobil" name="mobile" disabled value="${member.mobile}" autocomplete="off">
             </div>
             <div class="d-grid gap-2 col-6 mx-auto container" align="center">
-                <button type="submit" class="btn btn-success" id="signOutput"
+                <button type="submit" class="btn btn-success center" id="signOutput"
                     style="width:200px;height:40px;">修改</button>
-            </div>
-        </form>
-        	<div class="d-grid gap-2 col-6 mx-auto container" align="center"><a href="${basePath}Logout">
-                <button type="button" class="btn btn-success" id="signOut"
+                    <a href="${basePath}Logout">
+                <button type="button" class="btn btn-success" id="signOut" class="center"
                     style="width:200px;height:40px;">登出</button></a>
             </div>
+        </form>
         <div class="last"></div>
-    <!-- </div> -->
-    <!-- <script>
-
-        const choose = document.getElementById('gender');
-
-        choose.addEventListener("input", getOption)
-
-        function getOption() {
-            var x = document.getElementById("gender")
-            document.getElementById("genderInput").value = x.options[x.selectedIndex].text;
-            console.log(document.getElementById("genderInput").value);
-        }
-
-        function autoShow() {
-            document.getElementById( "second" ).classList.remove("hide");
-            document.getElementById( "second" ).classList.add("show");
-            document.getElementById( "first" ).classList.remove("show");
-            document.getElementById( "first" ).classList.add("hide");
-            document.getElementById( "third" ).classList.remove("back");
-            alert("資料修改完成！");
-        }
-
-        var timer = autoRun();
-        function autoRun() {
-            setTimeout("autoShow()", 3000);
-        }
-
-
-
-    </script> -->
+    
 
 </body>
 </html>
