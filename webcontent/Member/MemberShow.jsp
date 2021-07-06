@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <% 
 String path = request.getContextPath(); 
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/"; 
@@ -78,12 +79,43 @@ System.out.println(basePath);%>
             <div class="input-group flex-nowrap input-group-lg div">
                 <span class="input-group-text">性別</span>
                 <div class="btn-group">
+                	<c:if test="${member!=null}">
+                	<c:set var="gd" value="${member.gender}" />
+                		<select id="gender">
+                	<c:choose>
+                		<c:when test="${member.gender==null}">
+                			<option selected>請選擇</option>
+                		</c:when>
+                		<c:otherwise>
+                			<option>請選擇</option>
+                		</c:otherwise>
+                	</c:choose>          		
+                	<c:choose>
+                		<c:when test="${member.gender=='男'}">
+                			<option selected>男</option>
+                		</c:when>
+                		<c:otherwise>
+                			<option>男</option>
+                		</c:otherwise>
+                	</c:choose>
+                    <c:choose>
+                    	<c:when test="${member.gender=='女'}">
+                    		<option selected>女</option>
+                    	</c:when>
+                    	<c:otherwise>
+                    		<option>女</option>
+                    	</c:otherwise>
+                    </c:choose>  
+                    	</select>                      
+                	</c:if>
                     <input type="hidden" id="genderInput" name="gender" value="${member.gender}">
+                    <c:if test="${member==null}">
                     <select id="gender">
                         <option>請選擇</option>
                         <option>男</option>
                         <option>女</option>
                     </select>
+                    </c:if>
                 </div>
             </div>
             <div class="input-group flex-nowrap input-group-lg div">
