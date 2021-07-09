@@ -5,22 +5,31 @@ import java.util.*;
 import java.util.Date;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.petpet.bean.mevent.MarketingEventBean;
 
+@Repository("marketingEventDAO")
+@Transactional
 public class MarketingEventDAO implements IMarketingEventDAO{
 
-	private Session session;
+	@Autowired
+	private SessionFactory sessionFactory ;
 
 	@Override
 	public List<MarketingEventBean> selectAll() {
+		Session session = sessionFactory.getCurrentSession();
 		Query<MarketingEventBean> query = session.createQuery("from MarketingEventBean",MarketingEventBean.class);
 		return query.list();
 	};
 
 	@Override
 	public List<MarketingEventBean> query(String name){
+		Session session = sessionFactory.getCurrentSession();
 		String hql = "from MarketingEventBean where meventname like :name";
 		Query<MarketingEventBean> query = session.createQuery(hql, MarketingEventBean.class);
 		query.setParameter("name", name);
@@ -29,11 +38,13 @@ public class MarketingEventDAO implements IMarketingEventDAO{
 
 	@Override
 	public MarketingEventBean selectById(int eid){
+		Session session = sessionFactory.getCurrentSession();
 		return session.get(MarketingEventBean.class,eid);
 	};
 
 	@Override
 	public MarketingEventBean insert(MarketingEventBean bean){
+		Session session = sessionFactory.getCurrentSession();
 		MarketingEventBean result = session.get(MarketingEventBean.class, bean.getMeventid());
 		if(result==null) {
 			session.save(bean);
@@ -44,6 +55,7 @@ public class MarketingEventDAO implements IMarketingEventDAO{
 
 	@Override
 	public MarketingEventBean update(MarketingEventBean bean) {
+		Session session = sessionFactory.getCurrentSession();
 		MarketingEventBean result = session.get(MarketingEventBean.class, bean.getMeventid());
 		if(result!=null) {
 			result.setMeventtitle(bean.getMeventtitle());
@@ -61,6 +73,7 @@ public class MarketingEventDAO implements IMarketingEventDAO{
 
 	@Override
 	public boolean delete(MarketingEventBean bean){
+		Session session = sessionFactory.getCurrentSession();
 		MarketingEventBean result = session.get(MarketingEventBean.class, bean.getMeventid());
 		if(result!=null) {
 			session.delete(result);
@@ -74,6 +87,7 @@ public class MarketingEventDAO implements IMarketingEventDAO{
 	public String title() {
 		String hql = "select count(*) from MarketingEventBean where meventtitle like :title";
 		String title = new SimpleDateFormat("yyyyMMdd").format(new Date()) + "ME";
+		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery(hql);
 		query.setParameter("title", title+"%");
 		long num = (Long) query.uniqueResult();
@@ -82,19 +96,19 @@ public class MarketingEventDAO implements IMarketingEventDAO{
 	}
 
 	// getter setter
-	public Session getSession() {
-		return session;
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
 	}
 
-	public void setSession(Session session) {
-		this.session = session;
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 
 	// constructor
 	public MarketingEventDAO() {
 	}
 
-	public MarketingEventDAO(Session session) {
-		this.session = session;
+	public MarketingEventDAO(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 }

@@ -10,8 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table(name="marketingevent")
+@Component("marketingEventBean")
 public class MarketingEventBean implements java.io.Serializable {
 	@Transient
 	private static final long serialVersionUID = 1L;

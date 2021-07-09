@@ -2,52 +2,54 @@ package com.petpet.mevent;
 
 import java.util.List;
 
-import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.petpet.bean.mevent.MarketingEventBean;
-import com.petpet.mevent.dao.MarketingEventDAO;
+import com.petpet.mevent.dao.IMarketingEventDAO;
 
+@Service("marketingEventService")
+@Transactional
 public class MarketingEventService implements IMarketingEventService {
 
-	private MarketingEventDAO medao;
+	@Autowired @Qualifier("marketingEventDAO")
+	private IMarketingEventDAO marketingEventDAO;
 	
-	public MarketingEventService(Session session) {
-		medao=new MarketingEventDAO(session);
-	}
-
 	@Override
 	public List<MarketingEventBean> selectAll() {
-		return medao.selectAll();
+		return marketingEventDAO.selectAll();
 	}
 
 	@Override
 	public List<MarketingEventBean> query(String name) {
-		return medao.query(name);
+		return marketingEventDAO.query(name);
 	}
 
 	@Override
 	public MarketingEventBean selectById(int eid) {
-		return medao.selectById(eid);
+		return marketingEventDAO.selectById(eid);
 	}
 
 	@Override
 	public MarketingEventBean insert(MarketingEventBean bean) {
-		return medao.insert(bean);
+		return marketingEventDAO.insert(bean);
 	}
 
 	@Override
 	public MarketingEventBean update(MarketingEventBean bean) {
-		return medao.update(bean);
+		return marketingEventDAO.update(bean);
 	}
 
 	@Override
 	public boolean delete(MarketingEventBean bean) {
-		return medao.delete(bean);
+		return marketingEventDAO.delete(bean);
 	}
 
 	@Override
 	public String title() {
-		return medao.title();
+		return marketingEventDAO.title();
 	}
 
 }
