@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.petpet.bean.LoginBean;
 
+
 @Repository("loginDao")
 @Transactional
 public class LoginBeanDao {
@@ -70,6 +71,22 @@ public class LoginBeanDao {
 			resultBean.setMobile(Mobile);
 		}
 		return resultBean;
+	}
+	
+	
+	public boolean checkLogin(LoginBean users) {
+		Session session = sessionFactory.openSession();
+		
+		String hql = "from LoginBean where email=:user and password=:pwd";
+		Query<LoginBean> query = session.createQuery(hql, LoginBean.class);
+		query.setParameter("user", users.getEmail());
+		query.setParameter("pwd", users.getPassword());
+		LoginBean result = query.uniqueResult();
+		
+		if(result!=null) {
+			return true;
+		}
+		return false;
 	}
 	
 

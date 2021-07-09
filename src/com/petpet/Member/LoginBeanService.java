@@ -46,6 +46,11 @@ public class LoginBeanService implements ILoginBeanService {
 		return lbeanDao.update2(memberid, Firstname, Lastname, Gender, Birthday, Mobile);
 	}
 	
+	@Override
+	public boolean checkLogin(LoginBean users) {
+		
+		return lbeanDao.checkLogin(users);
+	}
 	
 
 }

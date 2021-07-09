@@ -43,6 +43,11 @@ public class LoginBean {
 	public LoginBean() {
 
 	}
+	
+	public LoginBean(String email, String password) {
+		this.email = email;
+		this.password = password;
+	}
 
 	public String getMemberid() {
 		return memberid;

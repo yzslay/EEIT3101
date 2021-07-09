@@ -73,7 +73,7 @@ System.out.println(basePath);%>
             </nav>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="login">
-                    <form method="post" action="${basePath}CheckMemberData">
+                    <form method="post" action="checkMemberData.controller">
                         <div class="mb-3 inSide">
                             <label for="logInput" class="form-label">會員帳號</label>
                             <input type="email" class="form-control" id="logInput" placeholder="請輸入Email" name="email">
