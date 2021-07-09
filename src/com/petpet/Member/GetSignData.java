@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.petpet.bean.LoginBean;
+
 
 @WebServlet("/GetSignData")
 public class GetSignData extends HttpServlet {

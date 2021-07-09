@@ -3,6 +3,8 @@ package com.petpet.Member;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
+import com.petpet.bean.LoginBean;
+
 
 public class LoginBeanDao {
 

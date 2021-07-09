@@ -1,5 +1,7 @@
 package com.petpet.Member;
 
+import com.petpet.bean.LoginBean;
+
 public interface ILoginBeanService {
 	public LoginBean insert(LoginBean loginBean);
 	public LoginBean selectByEmail(String email);

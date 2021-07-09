@@ -19,6 +19,7 @@ import javax.sql.DataSource;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.petpet.bean.LoginBean;
 import com.petpet.util.HibernateUtil;
 
 @WebServlet("/UpdateData")

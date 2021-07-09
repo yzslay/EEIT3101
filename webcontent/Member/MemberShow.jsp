@@ -61,7 +61,7 @@ System.out.println(basePath);%>
 
 <body id="third" class="back" background="image/Back.jpg">
     <div id="second" class="container outSide hide">
-        <jsp:useBean id="member" scope="request" class="com.petpet.Member.LoginBean" />
+        <jsp:useBean id="member" scope="request" class="com.petpet.bean.LoginBean" />
         <h1>帳戶資料修改</h1>
         <form method="post" action="${basePath}UpdateData">
             <div><br>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.petpet.bean.LoginBean;
 import com.petpet.util.HibernateUtil;
 
 

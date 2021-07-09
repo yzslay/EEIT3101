@@ -73,7 +73,7 @@ System.out.println(basePath);%>
 <body id="third" class="back" background="image/Back.jpg">
     <!-- <div id="first" class="container show loadText" align="center">準備載入頁面......</div>
     <div id="second" class="container outSide hide"> -->
-        <jsp:useBean id="member" scope="request" class="com.petpet.Member.LoginBean" />
+        <jsp:useBean id="member" scope="request" class="com.petpet.bean.LoginBean" />
         <h1>會員資料</h1>
         <form method="post" action="${basePath}GetMemberLogin">
         	<div><br>

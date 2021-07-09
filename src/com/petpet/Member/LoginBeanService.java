@@ -2,6 +2,8 @@ package com.petpet.Member;
 
 import org.hibernate.Session;
 
+import com.petpet.bean.LoginBean;
+
 public class LoginBeanService implements ILoginBeanService {
     private LoginBeanDao lbeanDao;
  
