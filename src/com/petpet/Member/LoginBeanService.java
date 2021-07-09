@@ -1,16 +1,21 @@
 package com.petpet.Member;
 
-import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.petpet.bean.LoginBean;
-
+@Service
+@Transactional
 public class LoginBeanService implements ILoginBeanService {
+	
+	@Autowired
     private LoginBeanDao lbeanDao;
  
 	
-	public LoginBeanService(Session session) {
-		lbeanDao=new LoginBeanDao(session);
-	}
+//	public LoginBeanService(Session session) {
+//		lbeanDao=new LoginBeanDao(session);
+//	}
 
 	@Override
 	public LoginBean insert(LoginBean loginBean) {
