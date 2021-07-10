@@ -64,7 +64,7 @@ public class LoginController {
 		loginBean.setMobile(request.getParameter("mobile"));
 		
 		LoginBean result = loginBeanService.update(memberid, loginBean);
-
+ 
 		m.addAttribute("memeber", result);
 		
 		return "ShowLogin";
