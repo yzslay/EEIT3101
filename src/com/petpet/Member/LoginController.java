@@ -62,10 +62,9 @@ public class LoginController {
 		loginBean.setGender(request.getParameter("gender"));
 		loginBean.setBirthday(request.getParameter("birthday"));
 		loginBean.setMobile(request.getParameter("mobile"));
-		
-		LoginBean result = loginBeanService.update(memberid, loginBean);
- 
-		m.addAttribute("memeber", result);
+		loginBeanService.update(memberid, loginBean);
+		LoginBean member = loginBeanService.selectById(memberid); 		
+		m.addAttribute("member", member);
 		
 		return "ShowLogin";
 	}
