@@ -75,7 +75,7 @@ System.out.println(basePath);%>
     <div id="second" class="container outSide hide"> -->
         <jsp:useBean id="member" scope="request" class="com.petpet.bean.LoginBean" />
         <h1>會員資料</h1>
-        <form method="post" action="${basePath}GetMemberLogin">
+        <form method="post" action="getMemberLogin.controller">
         	<div><br>
                 <h4 class="MemberNum">
                     <input class="MemberNum MemberNumInput" readonly type="Hidden" id="memberid" name="memberid" 

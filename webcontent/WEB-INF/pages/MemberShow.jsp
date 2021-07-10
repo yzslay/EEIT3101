@@ -63,7 +63,7 @@ System.out.println(basePath);%>
     <div id="second" class="container outSide hide">
         <jsp:useBean id="member" scope="request" class="com.petpet.bean.LoginBean" />
         <h1>帳戶資料修改</h1>
-        <form method="post" action="${basePath}UpdateData">
+        <form method="post" action="updateData.controller">
             <div><br>
                 <h4 class="MemberNum">您的會員編號：
                     <input class="MemberNum MemberNumInput" readonly type="text" id="memberid" name="memberid" 

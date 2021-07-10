@@ -3,6 +3,8 @@ package com.petpet.Member;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,6 +51,23 @@ public class LoginController {
 		m.addAttribute("member", result);
 		
 		return "MemberShow";
+	}
+	
+	@RequestMapping(path="/updateData.controller", method = RequestMethod.POST)
+	public String updateData(@RequestParam(name = "memberid") String memberid, HttpServletRequest request, Model m) {
+		
+		LoginBean loginBean = new LoginBean();
+		loginBean.setFirstname(request.getParameter("firstname"));
+		loginBean.setLastname(request.getParameter("lastname"));
+		loginBean.setGender(request.getParameter("gender"));
+		loginBean.setBirthday(request.getParameter("birthday"));
+		loginBean.setMobile(request.getParameter("mobile"));
+		
+		LoginBean result = loginBeanService.update(memberid, loginBean);
+
+		m.addAttribute("memeber", result);
+		
+		return "ShowLogin";
 	}
 
 }
