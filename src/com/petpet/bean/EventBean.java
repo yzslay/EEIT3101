@@ -6,25 +6,56 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name="event")
+@Component("EventBean")
 public class EventBean implements java.io.Serializable {
+	
+	@Transient //無視
 	private static final long serialVersionUID = 1L;
+	
+	@Id @Column(name = "EVENTID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int eventID;
+	@Column(name = "HOSTID")
 	private int hostID;
+	@Column(name = "EVENTDATE")
 	private String eventDate;
+	@Column(name = "EVENTNAME")
 	private String eventName;
+	@Column(name = "EVENTSTARTTIME")
 	private String eventStratTime;
+	@Column(name = "EVENTENDTIME")
 	private String eventEndTime;
-	
+	@Column(name = "EVENTLOCATION")
 	private String eventLocation;
+	@Column(name = "EVENTPICTURE")
 	private byte[] eventPicture;
+	@Column(name = "EVENTTYPE")
 	private String eventType;
+	@Column(name = "EVENTTYPE1")
 	private String eventType1;
-	
+	@Column(name = "EVENTTYPE2")
 	private String eventType2;
+	@Column(name = "EVENTTYPECUSTOM")
 	private String eventTypeCustom;
+	@Column(name = "EVENTMAXLIMIT")
 	private int eventMaxLimit;
+	@Column(name = "EVENTFEE")
 	private int eventFee;
+	@Column(name = "EVENTSTATUS")
 	private boolean eventStatus;
+	@Column(name = "EVENTDESCRIBE")
 	private String eventDescribe;
 	
 	public int getEventID() {  return eventID;  }
