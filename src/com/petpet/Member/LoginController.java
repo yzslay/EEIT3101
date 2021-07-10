@@ -42,7 +42,7 @@ public class LoginController {
 		return "Login";
 	}
 	
-	@RequestMapping(path="/getMemberLogin.controller", method = RequestMethod.GET)
+	@RequestMapping(path="/getMemberLogin.controller", method = RequestMethod.POST)
 	public String getMemberLogin(@RequestParam(name = "memberid") String memberid, Model m) {
 		
 		LoginBean result = loginBeanService.selectById(memberid);
