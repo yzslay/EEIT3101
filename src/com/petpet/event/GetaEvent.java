@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import com.petpet.bean.EmpBean;
+
 import com.petpet.bean.EventBean;
 
 @WebServlet("/Getaevent")
