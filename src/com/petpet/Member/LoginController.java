@@ -30,10 +30,15 @@ public class LoginController {
 		if (checkStatus) {
 			m.addAttribute("email", email);
 			m.addAttribute("password", password);
+			
+			LoginBean result = loginBeanService.selectByEmail(email);
+			m.addAttribute("member", result);
+			
+			
 			return "ShowLogin";
 		}
 
-		errors.put("msg", "please input correct username and password");
+		errors.put("message", "please input correct username and password");
 		return "Login";
 		
 		
