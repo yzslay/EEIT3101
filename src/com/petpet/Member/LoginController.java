@@ -35,12 +35,20 @@ public class LoginController {
 			LoginBean result = loginBeanService.selectByEmail(email);
 			m.addAttribute("member", result);
 			
-			
 			return "ShowLogin";
 		}
 
 		errors.put("message", "please input correct username and password");
 		return "Login";
+	}
+	
+	@RequestMapping(path="getMemberLogin.controller", method = RequestMethod.GET)
+	public String getMemberLogin(@RequestParam(name = "memberid") String memberid, Model m) {
+		
+		LoginBean result = loginBeanService.selectById(memberid);
+		m.addAttribute("member", result);
+		
+		return "MemberShow";
 	}
 
 }
