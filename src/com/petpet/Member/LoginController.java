@@ -16,7 +16,7 @@ import com.petpet.bean.LoginBean;
 public class LoginController {
 	
 	@Autowired
-	private LoginBeanService loginBeanService;
+	private ILoginBeanService loginBeanService;
 	
 	@RequestMapping(path="/checkMemberData.controller", method = RequestMethod.POST)
 	public String checkMemberData(@RequestParam(name = "email") String email,
