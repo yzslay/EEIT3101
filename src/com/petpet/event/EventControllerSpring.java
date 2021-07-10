@@ -35,7 +35,7 @@ public class EventControllerSpring {
 	}
 	
 	@RequestMapping(path="/addevent.controller", method = RequestMethod.POST)
-	public String addEvent(HttpServletRequest request, Model m) {
+	public String AddEvent(HttpServletRequest request, Model m) {
 		EventBean eventbean = new EventBean();
 		eventbean.setEventName((String)(request.getParameter("eventname")));
 		eventbean.setEventDate((String)(request.getParameter("eventdate")));
@@ -53,8 +53,33 @@ public class EventControllerSpring {
 		m.addAttribute("event",eventbean);
 		return "correct";
 	}
-
+	@RequestMapping(path="/deleteevent.controller", method = RequestMethod.GET)
+	public String DeleteEvent(HttpServletRequest request, Model m) {
+		int eventid =Integer.parseInt(request.getParameter("eventid"));
+		EventBean eventbean = EventService.delete(eventid);
+		m.addAttribute("event",eventbean);
+		return "deletecorrect";
+	}
 	
-	
+	@RequestMapping(path="/modifyevent.controller", method = RequestMethod.GET)
+	public String UpdateEvent(HttpServletRequest request, Model m) {
+		EventBean eventbean = new EventBean();
+		eventbean.setEventID(Integer.parseInt(request.getParameter("eventid")));
+		eventbean.setEventName((String)(request.getParameter("eventname")));
+		eventbean.setEventDate((String)(request.getParameter("eventdate")));
+		eventbean.setEventStratTime((String)(request.getParameter("eventstarttime")));
+		eventbean.setEventEndTime((String)(request.getParameter("eventendtime")));
+		eventbean.setEventLocation((String)(request.getParameter("eventlocation")));
+		eventbean.setEventType((String)(request.getParameter("eventtype")));
+		eventbean.setEventType1((String)(request.getParameter("eventtype1")));
+		eventbean.setEventType2((String)(request.getParameter("eventtype2")));
+		eventbean.setEventTypeCustom((String)(request.getParameter("eventtypecustom")));
+		eventbean.setEventMaxLimit(Integer.parseInt(request.getParameter("eventmaxlimit")));
+		eventbean.setEventFee(Integer.parseInt(request.getParameter("eventfee")));
+		eventbean.setEventDescribe((String)(request.getParameter("eventdescribe")));
+		EventBean modifyeventbean = EventService.update(eventbean);
+		m.addAttribute("event",modifyeventbean);
+		return "correct";
+	}
 	
 }

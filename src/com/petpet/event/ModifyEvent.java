@@ -42,7 +42,6 @@ public class ModifyEvent extends HttpServlet {
 			conn = ds.getConnection();
 			EventBean event = new EventBean();
 			event.setEventID(Integer.parseInt(request.getParameter("eventid")));
-			System.out.println(Integer.parseInt(request.getParameter("eventid")));
 			event.setEventName((String)(request.getParameter("eventname")));
 			event.setEventDate((String)(request.getParameter("eventdate")));
 			event.setEventStratTime((String)(request.getParameter("eventstarttime")));
