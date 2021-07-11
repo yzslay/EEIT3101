@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"  import="java.util.* , com.petpet.bean.EventBean" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%! @SuppressWarnings("unchecked") %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<% String path=request.getContextPath();
+	   String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/"+"event";
+	   System.out.println(basePath);%>
+	<base href="<%=basePath%>">
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,8 +84,8 @@ height: 70px;
 <body>
     <nav>
 		<ul>
-			<li><a href="/EEIT/Getallevent" class="href">查詢所有活動</a> 	</li>
-			<li><a href="/EEIT/event/createvent.jsp" class="href">新增活動</a> 	</li>
+			<li><a href="queryallevent.controller" class="href">查詢所有活動</a> 	</li>
+			<li><a href="createeevent.url" class="href">新增活動</a> 	</li>
 			<li><a href="about" class="href">about</a> 	</li>
 		</ul>
 	</nav>	
@@ -97,7 +102,7 @@ height: 70px;
 	<tbody>
 		<c:forEach items="${events}" var="event" varStatus="s">
 		<tr>
-			<th scope="row"> <a href="./Getaevent?eventid=${event.eventID}" title="${event.eventName}"> ${event.eventName} </a> </th> <td>${event.eventDate}</td><td>${event.eventStratTime}</td><td>${event.eventLocation}</td>
+			<th scope="row"> <a href="${basePath}Getaevent?eventid=${event.eventID}" title="${event.eventName}"> ${event.eventName} </a> </th> <td>${event.eventDate}</td><td>${event.eventStratTime}</td><td>${event.eventLocation}</td>
 			<td>${event.eventType}<br>
 			<c:out value="${event.eventType1}" default="--" /> <br> 
 			<c:out value="${event.eventType2}"  default="--" /> <br> 
@@ -105,7 +110,7 @@ height: 70px;
 			</td>
 			<td>${event.eventMaxLimit}</td>
 			<td>${event.eventFee}</td>
-			<td><input type="button" value="修改" name="eventID" onclick="location.href='/EEIT/Getaevent?eventid=${event.eventID}'"> <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
+			<td><input type="button" value="修改" name="eventID" onclick="location.href='${basePath}Getaevent?eventid=${event.eventID}'"> <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
 			</td>
 			<td><input type="button" class="delete" value="刪除" name="eventID" onclick="deleteItem(${event.eventID})"><i class="fa fa-trash fa-1x" aria-hidden="true"></i>
 			</td>
@@ -127,8 +132,7 @@ height: 70px;
  
 function deleteItem(ID) {
     if (confirm("你確定要刪除這個活動嗎")) {
-
-    	let  web="/EEIT/deleteevent?eventid="+ID;
+    	let  web="/EEIT3101/deleteevent.controller?eventid="+ID;
     	window.location.href=web;
     	
     }

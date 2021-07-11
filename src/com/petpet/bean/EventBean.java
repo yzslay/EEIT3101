@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="event")
-@Component("EventBean")
+@Component("eventbean")
 public class EventBean implements java.io.Serializable {
 	
 	@Transient //無視

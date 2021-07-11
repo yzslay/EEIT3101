@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.petpet.bean.EventBean;
-import com.petpet.bean.mevent.MarketingEventBean;
 
 @Repository("EventDAO")
 @Transactional

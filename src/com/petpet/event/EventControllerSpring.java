@@ -19,23 +19,22 @@ public class EventControllerSpring {
 	@Autowired
 	private IEventService EventService;
 	
-	@RequestMapping(path="/queryallevent.controller", method = {RequestMethod.POST,RequestMethod.POST})
-	public String ListAllEvents(Model m) {
+	@RequestMapping(path="/queryallevent.controller", method = {RequestMethod.POST,RequestMethod.GET})
+	public String listAllEvents(Model m) {
 		List<EventBean> event = EventService.queryall();
 		m.addAttribute("events", event);
-		
-		return 	"getallevent";
+		return 	"event/getallevent";
 	}
 	
 	@RequestMapping(path="/queryevent.controller", method = RequestMethod.GET)
-	public String ListEvent(@RequestParam("eventid") int eventid,Model m) {
+	public String listEvent(@RequestParam("eventid") int eventid,Model m) {
 		EventBean event = EventService.query(eventid);
 		m.addAttribute("events", event);
-		return 	"getaevent";
+		return 	"event/getaevent";
 	}
 	
 	@RequestMapping(path="/addevent.controller", method = RequestMethod.POST)
-	public String AddEvent(HttpServletRequest request, Model m) {
+	public String addEvent(HttpServletRequest request, Model m) {
 		EventBean eventbean = new EventBean();
 		eventbean.setEventName((String)(request.getParameter("eventname")));
 		eventbean.setEventDate((String)(request.getParameter("eventdate")));
@@ -51,18 +50,18 @@ public class EventControllerSpring {
 		eventbean.setEventDescribe((String)(request.getParameter("eventdescribe")));
 		EventService.insert(eventbean);
 		m.addAttribute("event",eventbean);
-		return "correct";
+		return "event/correct";
 	}
 	@RequestMapping(path="/deleteevent.controller", method = RequestMethod.GET)
-	public String DeleteEvent(HttpServletRequest request, Model m) {
+	public String deleteEvent(HttpServletRequest request, Model m) {
 		int eventid =Integer.parseInt(request.getParameter("eventid"));
 		EventBean eventbean = EventService.delete(eventid);
 		m.addAttribute("event",eventbean);
-		return "deletecorrect";
+		return "event/deletecorrect";
 	}
 	
 	@RequestMapping(path="/modifyevent.controller", method = RequestMethod.GET)
-	public String UpdateEvent(HttpServletRequest request, Model m) {
+	public String updateEvent(HttpServletRequest request, Model m) {
 		EventBean eventbean = new EventBean();
 		eventbean.setEventID(Integer.parseInt(request.getParameter("eventid")));
 		eventbean.setEventName((String)(request.getParameter("eventname")));
@@ -79,7 +78,11 @@ public class EventControllerSpring {
 		eventbean.setEventDescribe((String)(request.getParameter("eventdescribe")));
 		EventBean modifyeventbean = EventService.update(eventbean);
 		m.addAttribute("event",modifyeventbean);
-		return "correct";
+		return "event/correct";
 	}
-	
+	@RequestMapping(path="/createeevent.url", method = RequestMethod.GET)
+	public String creatEvent(HttpServletRequest request ) {
+
+		return "event/createvent";
+	}
 }

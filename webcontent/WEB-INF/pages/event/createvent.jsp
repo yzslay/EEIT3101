@@ -4,6 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<% String path=request.getContextPath();
+	   String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/"+"event";
+	   System.out.println(basePath);%>
+<base href="<%=basePath%>">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
@@ -72,14 +76,14 @@ height: 70px;
 <body>
     <nav>
 		<ul>
-			<li><a href="/EEIT/Getallevent" class="href">查詢所有活動</a> 	</li>
-			<li><a href="/EEIT/event/createvent.jsp" class="href">新增活動</a> 	</li>
+			<li><a href="queryallevent.controller" class="href">查詢所有活動</a> 	</li>
+			<li><a href="createeevent.url" class="href">新增活動</a> 	</li>
 			<li><a href="about" class="href">about</a> 	</li>
 		</ul>
 	</nav>	
 			
 <div class="container anchor">
-    <form method="post" name="createvent" action="/EEIT/insertevent">  
+    <form method="post" name="createvent" action="${basePath}addevent.controller">  
       	<div class="row">
             <div class="col">
             活動名稱 :<br> <input type="text" class="form-control" required name="eventname"  placeholder="請輸入活動名稱"/>

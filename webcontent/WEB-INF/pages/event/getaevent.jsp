@@ -11,6 +11,10 @@
 <script src="/EEIT/event/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 <html>
 <head>
+	<% String path=request.getContextPath();
+	   String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/"+"event";
+	   System.out.println(basePath);%>
+	<base href="<%=basePath%>">
 <style>
 
 nav {
