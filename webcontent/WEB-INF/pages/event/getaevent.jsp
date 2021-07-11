@@ -62,11 +62,11 @@ footer{
 <body>
     <nav>
 		<ul>
-			<li><a href="/EEIT/Getallevent" class="href">查詢所有活動</a> 	</li>
-			<li><a href="/EEIT/event/createvent.jsp" class="href">新增活動</a> 	</li>
+			<li><a href="queryallevent.controller" class="href">查詢所有活動</a> 	</li>
+			<li><a href="createeevent.url" class="href">新增活動</a> 	</li>
 			<li><a href="about" class="href">about</a> 	</li>
 		</ul>
-	</nav>
+	</nav>	
 	
 <div class="container anchor">
     <form method="post" name="submitselection" action="./ModifyEvent" >  

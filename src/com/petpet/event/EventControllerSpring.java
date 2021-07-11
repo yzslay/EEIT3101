@@ -29,7 +29,7 @@ public class EventControllerSpring {
 	@RequestMapping(path="/queryevent.controller", method = RequestMethod.GET)
 	public String listEvent(@RequestParam("eventid") int eventid,Model m) {
 		EventBean event = EventService.query(eventid);
-		m.addAttribute("events", event);
+		m.addAttribute("event", event);
 		return 	"event/getaevent";
 	}
 	

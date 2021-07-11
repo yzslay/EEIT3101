@@ -110,7 +110,7 @@ height: 70px;
 			</td>
 			<td>${event.eventMaxLimit}</td>
 			<td>${event.eventFee}</td>
-			<td><input type="button" value="修改" name="eventID" onclick="location.href='${basePath}Getaevent?eventid=${event.eventID}'"> <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
+			<td><input type="button" value="修改" name="eventID" onclick="location.href='/EEIT3101/queryevent.controller?eventid=${event.eventID}'"> <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
 			</td>
 			<td><input type="button" class="delete" value="刪除" name="eventID" onclick="deleteItem(${event.eventID})"><i class="fa fa-trash fa-1x" aria-hidden="true"></i>
 			</td>
