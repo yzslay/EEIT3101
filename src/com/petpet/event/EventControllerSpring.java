@@ -60,7 +60,7 @@ public class EventControllerSpring {
 		return "event/deletecorrect";
 	}
 	
-	@RequestMapping(path="/modifyevent.controller", method = RequestMethod.GET)
+	@RequestMapping(path="/modifyevent.controller", method = RequestMethod.POST)
 	public String updateEvent(HttpServletRequest request, Model m) {
 		EventBean eventbean = new EventBean();
 		eventbean.setEventID(Integer.parseInt(request.getParameter("eventid")));

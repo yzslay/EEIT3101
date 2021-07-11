@@ -69,7 +69,7 @@ footer{
 	</nav>	
 	
 <div class="container anchor">
-    <form method="post" name="submitselection" action="./ModifyEvent" >  
+    <form method="post" name="submitselection" action="/EEIT3101/modifyevent.controller" >  
     	 <input type="hidden"  readonly name="eventid" value="${event.eventID}" />
    
 
