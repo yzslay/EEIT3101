@@ -9,7 +9,8 @@ System.out.println(basePath);%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Website</title>
@@ -112,7 +113,7 @@ System.out.println(basePath);%>
             <!--heading---->
             <strong>會員登入</strong>
             <!--inputs-->
-            <form method="post" action="newCheckMemberData.controller">
+            <form>
                 <input type="email" placeholder="Example@gmail.com" name="email" required>
                 <input type="password" placeholder="Password" name="password" required>
                 <!--submit-btn-->
@@ -614,6 +615,19 @@ System.out.println(basePath);%>
             </form>
         </div>
     </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <!--script-------->

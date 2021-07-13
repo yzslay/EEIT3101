@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.petpet.bean.LoginBean;
 
 @Controller
-public class LoginController {
+public class NewLoginController {
 	
 	@Autowired
 	private ILoginBeanService loginBeanService;
 	
 	
-	@RequestMapping(path="/checkMemberData.controller", method = RequestMethod.POST)
+	@RequestMapping(path="/newCheckMemberData.controller", method = RequestMethod.POST)
 	public String checkMemberData(@RequestParam(name = "email") String email,
 			@RequestParam(name = "password") String password, HttpServletRequest request, Model m) {
 
@@ -39,14 +39,14 @@ public class LoginController {
 			
 			m.addAttribute("member", result);
 			
-			return "ShowLogin";
+			return "NewShowLogin";
 		}
 
 		errors.put("message", "please input correct username and password");
 		return "Login";
 	}
 	
-	@RequestMapping(path="/getMemberLogin.controller", method = RequestMethod.POST)
+	@RequestMapping(path="/newGetMemberLogin.controller", method = RequestMethod.POST)
 	public String getMemberLogin(@RequestParam(name = "memberid") String memberid, Model m) {
 		
 		LoginBean result = loginBeanService.selectById(memberid);
@@ -55,7 +55,7 @@ public class LoginController {
 		return "MemberShow";
 	}
 	
-	@RequestMapping(path="/updateData.controller", method = RequestMethod.POST)
+	@RequestMapping(path="/newUpdateData.controller", method = RequestMethod.POST)
 	public String updateData(@RequestParam(name = "memberid") String memberid, HttpServletRequest request, Model m) {
 		
 		LoginBean loginBean = new LoginBean();
@@ -71,7 +71,7 @@ public class LoginController {
 		return "ShowLogin";
 	}
 	
-	@RequestMapping(path="/registermember.controller", method = RequestMethod.POST)
+	@RequestMapping(path="/newRegistermember.controller", method = RequestMethod.POST)
 	public String registermember(@RequestParam(name = "email") String email, 
 								 @RequestParam(name = "password") String password, Model m) {
 		
@@ -85,7 +85,7 @@ public class LoginController {
 
 	}
 	
-	@RequestMapping(path="/logout.controller", method = RequestMethod.GET)
+	@RequestMapping(path="/newLogout.controller", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
 		if(request.getSession().getAttribute("login")!=null) {
 			request.getSession().invalidate();
