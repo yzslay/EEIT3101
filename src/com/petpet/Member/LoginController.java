@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.petpet.bean.LoginBean;
 
@@ -21,9 +22,10 @@ public class LoginController {
 	@Autowired
 	private ILoginBeanService loginBeanService;
 	
+	
 	@RequestMapping(path="/checkMemberData.controller", method = RequestMethod.POST)
 	public String checkMemberData(@RequestParam(name = "email") String email,
-			@RequestParam(name = "password") String password, Model m) {
+			@RequestParam(name = "password") String password, HttpServletRequest request, Model m) {
 
 		Map<String, String> errors = new HashMap<String, String>();
 		m.addAttribute("errors", errors);
@@ -35,6 +37,8 @@ public class LoginController {
 			m.addAttribute("password", password);
 			
 			LoginBean result = loginBeanService.selectByEmail(email);
+			request.getSession().setAttribute("login", result.getMemberid());
+			
 			m.addAttribute("member", result);
 			
 			return "ShowLogin";
@@ -81,6 +85,14 @@ public class LoginController {
 		
 		return "ShowLogin";
 
+	}
+	
+	@RequestMapping(path="/logout.controller", method = RequestMethod.POST)
+	public String logout(HttpServletRequest request) {
+		if(request.getSession().getAttribute("login")!=null) {
+			request.getSession().invalidate();
+		}
+		return "Login";
 	}
 
 }

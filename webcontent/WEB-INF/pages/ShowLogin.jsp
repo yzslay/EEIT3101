@@ -112,7 +112,7 @@ System.out.println(basePath);%>
             <div class="d-grid gap-2 col-6 mx-auto container" align="center">
                 <button type="submit" class="btn btn-success center" id="signOutput"
                     style="width:200px;height:40px;">修改</button>
-                    <a href="${basePath}Logout">
+                    <a href="logout.controller">
                 <button type="button" class="btn btn-success" id="signOut" class="center"
                     style="width:200px;height:40px;">登出</button></a>
             </div>
