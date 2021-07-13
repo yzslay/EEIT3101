@@ -87,7 +87,7 @@ public class LoginController {
 
 	}
 	
-	@RequestMapping(path="/logout.controller", method = RequestMethod.POST)
+	@RequestMapping(path="/logout.controller", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
 		if(request.getSession().getAttribute("login")!=null) {
 			request.getSession().invalidate();
