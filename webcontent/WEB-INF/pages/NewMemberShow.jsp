@@ -323,6 +323,16 @@ System.out.println(basePath);%>
     <!--script-------->
     <script type="text/javascript">
 
+    const choose = document.getElementById('gender');
+
+    choose.addEventListener("input", getOption)
+
+    function getOption() {
+        var x = document.getElementById("gender")
+        document.getElementById("genderInput").value = x.options[x.selectedIndex].text;
+        console.log(document.getElementById("genderInput").value);
+    }
+
         /*----For Search bar---------------------*/
         $(document).on('click', '.search', function () {
             $('.search-bar').addClass('search-bar-active')
