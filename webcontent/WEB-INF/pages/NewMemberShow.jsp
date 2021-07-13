@@ -5,11 +5,11 @@
 String path = request.getContextPath(); 
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/"; 
 System.out.println(basePath);%> 
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<base href="<%=basePath%>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Website</title>
@@ -18,7 +18,10 @@ System.out.println(basePath);%>
     <!--light-slider-css-->
     <link rel="stylesheet" type="text/css" href="${basePath}/EEIT3101/css/Member/lightslider.css">
     <!--jQuery-------->
-    <script src="${basePath}/EEIT3101/js/Member/jQuery.js"></script>
+    <!-- <script src="${basePath}/EEIT3101/js/Member/jQuery.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"></script>
     <!--light-slider-js-->
     <script src="${basePath}/EEIT3101/js/Member/lightslider.js"></script>
 
