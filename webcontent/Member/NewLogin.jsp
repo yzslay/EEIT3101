@@ -9,21 +9,24 @@ System.out.println(basePath);%>
 <!DOCTYPE html>
 <html>
 <head>
+	<base href="<%=basePath%>">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Website</title>
     <!--stylesheet-->
-    <link rel="stylesheet" type="text/css" href="${basePath}/EEIT3101/css/Member/style.css">
+    <link rel="stylesheet" type="text/css" href="${basePath}css/Member/style.css">
     <!--light-slider-css-->
-    <link rel="stylesheet" type="text/css" href="${basePath}/EEIT3101/css/Member/lightslider.css">
+    <link rel="stylesheet" type="text/css" href="${basePath}css/Member/lightslider.css">
     <!--jQuery-------->
-    <script src="${basePath}/EEIT3101/js/Member/jQuery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"></script>
     <!--light-slider-js-->
-    <script src="${basePath}/EEIT3101/js/Member/lightslider.js"></script>
+    <script src="${basePath}js/Member/lightslider.js"></script>
 
     <!--fav-icon------------------->
-    <link rel="shortcut icon" href="${basePath}/EEIT3101/images/Member/fav-icon.ico" />
+    <link rel="shortcut icon" href="${basePath}images/Member/fav-icon.ico" />
     <!--using-FontAwesome-for-Icons-->
     <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
 </head>
@@ -49,7 +52,7 @@ System.out.println(basePath);%>
         <div class="navigation">
             <!--logo---------->
             <a href="#" class="logo">
-                <img src="${basePath}/EEIT3101/images/Member/PetPetLogo.png" />
+                <img src="${basePath}images/Member/PetPetLogo.png" />
             </a>
             <!--menu-icon---------------------->
             <div class="toggle"></div>
@@ -164,7 +167,7 @@ System.out.println(basePath);%>
             <!--feature-box-->
         <div class="feature-box">
         <a href="#">
-            <img src="${basePath}/EEIT3101/images/Member/feature_1.jpg">
+            <img src="${basePath}images/Member/feature_1.jpg">
         </a>
         </div>
         <!--text---------------------------->
@@ -176,7 +179,7 @@ System.out.println(basePath);%>
             <!--feature-box-->
         <div class="feature-box">
         <a href="#">
-            <img src="${basePath}/EEIT3101/images/Member/feature_2.jpg">
+            <img src="${basePath}images/Member/feature_2.jpg">
         </a>
         </div>
         <!--text---------------------------->
@@ -188,7 +191,7 @@ System.out.println(basePath);%>
             <!--feature-box-->
         <div class="feature-box">
         <a href="#">
-            <img src="${basePath}/EEIT3101/images/Member/feature_3.jpg">
+            <img src="${basePath}images/Member/feature_3.jpg">
         </a>
         </div>
         <!--text---------------------------->
@@ -200,7 +203,7 @@ System.out.println(basePath);%>
             <!--feature-box-->
         <div class="feature-box">
         <a href="#">
-            <img src="${basePath}/EEIT3101/images/Member/feature_4.jpg">
+            <img src="${basePath}images/Member/feature_4.jpg">
         </a>
         </div>
         <!--text---------------------------->
@@ -212,7 +215,7 @@ System.out.println(basePath);%>
             <!--feature-box-->
         <div class="feature-box">
         <a href="#">
-            <img src="${basePath}/EEIT3101/images/Member/feature_5.jpg">
+            <img src="${basePath}images/Member/feature_5.jpg">
         </a>
         </div>
         <!--text---------------------------->
@@ -224,7 +227,7 @@ System.out.println(basePath);%>
             <!--feature-box-->
         <div class="feature-box">
         <a href="#">
-            <img src="${basePath}/EEIT3101/images/Member/feature_6.jpg">
+            <img src="${basePath}images/Member/feature_6.jpg">
         </a>
         </div>
         <!--text---------------------------->
@@ -250,7 +253,7 @@ System.out.println(basePath);%>
                 <a href="#" class="add-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                    <img src="${basePath}/EEIT3101/images/Member/p-1.jpg"/>
+                    <img src="${basePath}images/Member/p-1.jpg"/>
                 </div>
 
                 <!--details-->
@@ -269,7 +272,7 @@ System.out.println(basePath);%>
                 <a href="#" class="add-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                    <img src="${basePath}/EEIT3101/images/Member/p-2.jpg"/>
+                    <img src="${basePath}images/Member/p-2.jpg"/>
                 </div>
 
                 <!--details-->
@@ -288,7 +291,7 @@ System.out.println(basePath);%>
                 <a href="#" class="add-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                    <img src="${basePath}/EEIT3101/images/Member/p-3.jpg"/>
+                    <img src="${basePath}images/Member/p-3.jpg"/>
                 </div>
 
                 <!--details-->
@@ -307,7 +310,7 @@ System.out.println(basePath);%>
                 <a href="#" class="add-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                    <img src="${basePath}/EEIT3101/images/Member/p-4.jpg"/>
+                    <img src="${basePath}images/Member/p-4.jpg"/>
                 </div>
 
                 <!--details-->
@@ -326,7 +329,7 @@ System.out.println(basePath);%>
                 <a href="#" class="add-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                    <img src="${basePath}/EEIT3101/images/Member/p-5.jpg"/>
+                    <img src="${basePath}images/Member/p-5.jpg"/>
                 </div>
 
                 <!--details-->
@@ -345,7 +348,7 @@ System.out.println(basePath);%>
                 <a href="#" class="add-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                    <img src="${basePath}/EEIT3101/images/Member/p-6.jpg"/>
+                    <img src="${basePath}images/Member/p-6.jpg"/>
                 </div>
 
                 <!--details-->
@@ -364,7 +367,7 @@ System.out.println(basePath);%>
                 <a href="#" class="add-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                    <img src="${basePath}/EEIT3101/images/Member/p-7.jpg"/>
+                    <img src="${basePath}images/Member/p-7.jpg"/>
                 </div>
 
                 <!--details-->
@@ -383,7 +386,7 @@ System.out.println(basePath);%>
                 <a href="#" class="add-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                    <img src="${basePath}/EEIT3101/images/Member/p-8.jpg"/>
+                    <img src="${basePath}images/Member/p-8.jpg"/>
                 </div>
 
                 <!--details-->
@@ -402,7 +405,7 @@ System.out.println(basePath);%>
                 <a href="#" class="add-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                    <img src="${basePath}/EEIT3101/images/Member/p-8.jpg"/>
+                    <img src="${basePath}images/Member/p-8.jpg"/>
                 </div>
 
                 <!--details-->
@@ -421,7 +424,7 @@ System.out.println(basePath);%>
                 <a href="#" class="add-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                    <img src="${basePath}/EEIT3101/images/Member/p-8.jpg"/>
+                    <img src="${basePath}images/Member/p-8.jpg"/>
                 </div>
 
                 <!--details-->
@@ -440,7 +443,7 @@ System.out.println(basePath);%>
     <section class="sale">
         <!--sale-box-1-------------------->
         <div class="sale-box sale-1">
-            <img src="${basePath}/EEIT3101/images/Member/sale-1.jpg">
+            <img src="${basePath}images/Member/sale-1.jpg">
             
             <a href="#">
             <div class="sale-text">
@@ -451,7 +454,7 @@ System.out.println(basePath);%>
           </div>
            <!--sale-box-2-------------------->
         <div class="sale-box sale-1">
-          <img src="${basePath}/EEIT3101/images/Member/sale-2.jpg">
+          <img src="${basePath}images/Member/sale-2.jpg">
           
           <a href="#"><div class="sale-text">
             <strong>Hello Summer</strong>
@@ -461,7 +464,7 @@ System.out.println(basePath);%>
         </div>
          <!--sale-box-3-------------------->
          <div class="sale-box sale-1">
-          <img src="${basePath}/EEIT3101/images/Member/sale-3.jpg">
+          <img src="${basePath}images/Member/sale-3.jpg">
           
           <a href="#">
           <div class="sale-text">
@@ -490,7 +493,7 @@ System.out.println(basePath);%>
                 <a href="#" class="add-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                    <img src="${basePath}/EEIT3101/images/Member/p-1.jpg"/>
+                    <img src="${basePath}images/Member/p-1.jpg"/>
                 </div>
 
                 <!--details-->
@@ -509,7 +512,7 @@ System.out.println(basePath);%>
                 <a href="#" class="add-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                    <img src="${basePath}/EEIT3101/images/Member/p-2.jpg"/>
+                    <img src="${basePath}images/Member/p-2.jpg"/>
                 </div>
 
                 <!--details-->
@@ -528,7 +531,7 @@ System.out.println(basePath);%>
                 <a href="#" class="add-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                    <img src="${basePath}/EEIT3101/images/Member/p-3.jpg"/>
+                    <img src="${basePath}images/Member/p-3.jpg"/>
                 </div>
 
                 <!--details-->
@@ -547,7 +550,7 @@ System.out.println(basePath);%>
                 <a href="#" class="add-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-                    <img src="${basePath}/EEIT3101/images/Member/p-4.jpg"/>
+                    <img src="${basePath}images/Member/p-4.jpg"/>
                 </div>
 
                 <!--details-->

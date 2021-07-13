@@ -294,13 +294,13 @@ nav{
     background-position: center;
 }
 .f-slide-1{
-    background-image: url(${basePath}/EEIT3101/images/Member/Slider_01.jpg);
+    background-image: url(../../images/Member/Slider_01.jpg);
 }
 .f-slide-2{
-    background-image: url(${basePath}/EEIT3101/images/Member/Slider_02.jpg);
+    background-image: url(../../images/Member/Slider_02.jpg);
 }
 .f-slide-3{
-    background-image: url(${basePath}/EEIT3101/images/Member/Slider_03.jpg);
+    background-image: url(../../images/Member/Slider_03.jpg);
 }
 .slider-text-container,
 .banner-text-container{
