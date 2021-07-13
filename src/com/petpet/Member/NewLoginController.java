@@ -81,7 +81,7 @@ public class NewLoginController {
 		LoginBean result = loginBeanService.insert(insertbean);
 		m.addAttribute("member", result);
 		
-		return "ShowLogin";
+		return "NewShowLogin";
 
 	}
 	
@@ -90,7 +90,7 @@ public class NewLoginController {
 		if(request.getSession().getAttribute("login")!=null) {
 			request.getSession().invalidate();
 		}
-		return "Login";
+		return "NewLogin";
 	}
 
 }
