@@ -68,5 +68,19 @@ public class LoginController {
 		
 		return "ShowLogin";
 	}
+	
+	@RequestMapping(path="/registermember.controller", method = RequestMethod.POST)
+	public String registermember(@RequestParam(name = "email") String email, 
+								 @RequestParam(name = "password") String password, Model m) {
+		
+		LoginBean insertbean = new LoginBean();
+		insertbean.setEmail(email);
+		insertbean.setPassword(password);
+		LoginBean result = loginBeanService.insert(insertbean);
+		m.addAttribute("member", result);
+		
+		return "ShowLogin";
+
+	}
 
 }
