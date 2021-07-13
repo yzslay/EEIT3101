@@ -52,7 +52,7 @@ public class NewLoginController {
 		LoginBean result = loginBeanService.selectById(memberid);
 		m.addAttribute("member", result);
 		
-		return "MemberShow";
+		return "NewMemberShow";
 	}
 	
 	@RequestMapping(path="/newUpdateData.controller", method = RequestMethod.POST)
@@ -68,7 +68,7 @@ public class NewLoginController {
 		LoginBean member = loginBeanService.selectById(memberid); 		
 		m.addAttribute("member", member);
 		
-		return "ShowLogin";
+		return "NewShowLogin";
 	}
 	
 	@RequestMapping(path="/newRegistermember.controller", method = RequestMethod.POST)
