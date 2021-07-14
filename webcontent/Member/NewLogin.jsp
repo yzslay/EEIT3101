@@ -681,7 +681,7 @@ System.out.println(basePath);%>
           $('.navigation').toggleClass('active')
       })
   })
-
+	
     </script>
 </body>
 </html>

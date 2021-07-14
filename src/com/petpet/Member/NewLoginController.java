@@ -42,7 +42,7 @@ public class NewLoginController {
 		}
 
 		errors.put("message", "please input correct username and password");
-		return "Login";
+		return "Error";
 	}
 	
 	@RequestMapping(path="/newGetMemberLogin.controller", method = RequestMethod.POST)
@@ -78,6 +78,12 @@ public class NewLoginController {
 		insertbean.setEmail(email);
 		insertbean.setPassword(AESUtil.encryptString(password));
 		LoginBean result = loginBeanService.insert(insertbean);
+		if(result==null) {
+			Map<String, String> errors = new HashMap<String, String>();
+			m.addAttribute("errors", errors);
+			errors.put("message", "email已註冊過");
+			return "Error";
+		}
 		m.addAttribute("member", result);
 		
 		return "NewShowLogin";
