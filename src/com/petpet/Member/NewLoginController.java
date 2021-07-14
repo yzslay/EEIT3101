@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.petpet.bean.LoginBean;
+import com.petpet.util.AESUtil;
 
 @Controller
 public class NewLoginController {
@@ -28,11 +29,9 @@ public class NewLoginController {
 		Map<String, String> errors = new HashMap<String, String>();
 		m.addAttribute("errors", errors);
 		
-		boolean checkStatus = loginBeanService.checkLogin(new LoginBean(email, password));
+		boolean checkStatus = loginBeanService.checkLogin(new LoginBean(email, AESUtil.encryptString(password)));
 
 		if (checkStatus) {
-			m.addAttribute("email", email);
-			m.addAttribute("password", password);
 			
 			LoginBean result = loginBeanService.selectByEmail(email);
 			request.getSession().setAttribute("login", result.getMemberid());
@@ -77,7 +76,7 @@ public class NewLoginController {
 		
 		LoginBean insertbean = new LoginBean();
 		insertbean.setEmail(email);
-		insertbean.setPassword(password);
+		insertbean.setPassword(AESUtil.encryptString(password));
 		LoginBean result = loginBeanService.insert(insertbean);
 		m.addAttribute("member", result);
 		
