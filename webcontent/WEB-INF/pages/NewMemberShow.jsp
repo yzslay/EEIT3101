@@ -166,7 +166,7 @@ System.out.println(basePath);%>
             <!--heading---->
             <strong>會員登入</strong>
             <!--inputs-->
-            <form>
+            <form method="post" action="newCheckMemberData.controller">
                 <input type="email" placeholder="Example@gmail.com" name="email" required>
                 <input type="password" placeholder="Password" name="password" required>
                 <!--submit-btn-->
@@ -191,7 +191,7 @@ System.out.println(basePath);%>
             <!--heading---->
             <strong>建立帳戶</strong>
             <!--inputs-->
-            <form>
+            <form method="post" action="newRegistermember.controller">
                 <input type="email" placeholder="Example@gmail.com" name="email" required>
                 <input type="password" placeholder="Password" name="password" required>
                 <input type="password" placeholder="Confirm Password" name="password" required>

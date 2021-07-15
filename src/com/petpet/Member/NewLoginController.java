@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +22,10 @@ public class NewLoginController {
 	@Autowired
 	private ILoginBeanService loginBeanService;
 	
+	@GetMapping("/NewLogin")
+	public String showForm() {
+		return "NewLogin";
+	}
 	
 	@RequestMapping(path="/newCheckMemberData.controller", method = RequestMethod.POST)
 	public String checkMemberData(@RequestParam(name = "email") String email,
