@@ -143,7 +143,7 @@ System.out.println(basePath);%>
             <form method="post" action="newRegistermember.controller">
                 <input type="email" placeholder="Example@gmail.com" name="email" required>
                 <input type="password" placeholder="Password" name="password" required>
-                <input type="password" placeholder="Confirm Password" name="password" required>
+                <input type="password" placeholder="Confirm Password" name="cpassword" required>
                 <!--submit-btn-->
                 <input type="submit" value="Sign Up">
             </form>
