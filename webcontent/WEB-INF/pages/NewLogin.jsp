@@ -155,6 +155,61 @@ System.out.println(basePath);%>
         </div>
 
     </div>
+    
+    <!--Full-slider--------------------------------------------------------------->
+
+    <ul id="adaptive" class="cs-hidden">
+        <!--box-1---------------------->
+        <li class="item-a">
+            <!--box---------------->
+            <div class="full-slider-box f-slide-1">
+                <!--slider-text-container----------->
+                <div class="slider-text-container">
+
+                    <div class="f-slider-text">
+                        <span>Limited offer</span>
+                        <strong>30% off<br /> with <Font>promo code</Font></strong>
+                        <a href="#" class="f-slider-btn">Shop Now</a>
+                    </div>
+
+                </div>
+            </div>
+        </li>
+
+        <!--box-2---------------------->
+        <li class="item-a">
+            <!--box---------------->
+            <div class="full-slider-box f-slide-2">
+                <!--slider-text-container----------->
+                <div class="slider-text-container">
+
+                    <div class="f-slider-text">
+                        <span>Limited offer</span>
+                        <strong>30% off<br /> with <Font>promo code</Font></strong>
+                        <a href="#" class="f-slider-btn">Shop Now</a>
+                    </div>
+
+                </div>
+            </div>
+        </li>
+
+        <!--box-3---------------------->
+        <li class="item-a">
+            <!--box---------------->
+            <div class="full-slider-box f-slide-3">
+                <!--slider-text-container----------->
+                <div class="slider-text-container">
+
+                    <div class="f-slider-text">
+                        <span>Limited offer</span>
+                        <strong>30% off<br /> with <Font>promo code</Font></strong>
+                        <a href="#" class="f-slider-btn">Shop Now</a>
+                    </div>
+
+                </div>
+            </div>
+        </li>
+    </ul>
 
     <!--Feature-Categories-------------------------------->
     <div class="feature-heading">
